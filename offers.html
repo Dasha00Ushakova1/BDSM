@@ -57,6 +57,22 @@
             text-align: left;
         }
 
+        .form-container label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        .form-container input,
+        .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #61dafb;
+            border-radius: 5px;
+            background-color: #20232a; /* Темный фон для полей ввода */
+            color: #f0f0f0; /* Светлый текст */
+        }
+
         .btn {
             background-color: #61dafb; /* Светлая кнопка */
             color: #282c34; /* Темный текст на кнопке */
@@ -112,14 +128,20 @@
         <section class="form-container">
             <h2>Создать новое предложение</h2>
             <form id="offerForm">
+                <label for="authorName">Ваше имя:</label>
+                <input type="text" id="authorName" required>
+
                 <label for="serviceName">Услуга:</label>
-                <input type="text" id="serviceName" required><br>
+                <input type="text" id="serviceName" required>
+
                 <label for="serviceDescription">Описание:</label>
-                <textarea id="serviceDescription" required></textarea><br>
+                <textarea id="serviceDescription" required></textarea>
+
                 <label for="servicePrice">Цена:</label>
-                <input type="number" id="servicePrice" required><br>
+                <input type="number" id="servicePrice" required>
+
                 <button type="submit" class="btn">Создать предложение</button>
-            </form>
+                        </form>
         </section>
 
         <section class="offers-list">
@@ -137,7 +159,7 @@
                 <tbody id="offersTableBody">
                     <tr>
                         <td>Дизайн логотипа</td>
-                        <td>Создание уникального логотипа для вашего бизнеса                         </td>
+                        <td>Создание уникального логотипа для вашего бизнеса</td>
                         <td>5000 руб.</td>
                         <td>Иван Иванов</td>
                         <td>
@@ -174,6 +196,7 @@
     <script>
         document.getElementById("offerForm").onsubmit = function(event) {
             event.preventDefault();
+            const authorName = document.getElementById('authorName').value;
             const serviceName = document.getElementById('serviceName').value;
             const serviceDescription = document.getElementById('serviceDescription').value;
             const servicePrice = document.getElementById('servicePrice').value;
@@ -184,7 +207,7 @@
                 <td>${serviceName}</td>
                 <td>${serviceDescription}</td>
                 <td>${servicePrice} руб.</td>
-                <td>Ваше Имя</td> <!-- Здесь можно добавить динамическое имя автора -->
+                <td>${authorName}</td>
                 <td>
                     <button class="btn" onclick="viewOffer('${serviceName}')">Просмотреть</button>
                 </td>
