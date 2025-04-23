@@ -66,7 +66,7 @@
             display: inline-block;
         }
 
-        .reviews-section, .how-it-works {
+        .reviews-section, .how-it-works, .contact-form {
             padding: 20px;
             text-align: center;
             background: white;
@@ -144,25 +144,53 @@
                 <div class="review">
                     <p>"Отличная платформа для обмена услугами!"</p>
                     <span>- Анна, фрилансер</span>
+                                <div class="review">
+                    <p>"Я нашел отличного помощника на RemoteBuddy!"</p>
+                    <span>- Иван, бизнесмен</span>
                 </div>
                 <div class="review">
-                <p>"Я нашел отличного помощника на RemoteBuddy!"</p>
-                <span>- Иван, бизнесмен</span>
+                    <p>"RemoteBuddy помог мне найти клиентов для моего бизнеса!"</p>
+                    <span>- Ольга, предприниматель</span>
+                </div>
             </div>
-            <div class="review">
-                <p>"RemoteBuddy помог мне найти клиентов для моего бизнеса!"</p>
-                <span>- Ольга, предприниматель</span>
-            </div>
-        </div>
-    </section>
-    <section class="how-it-works">
-        <h3>Как это работает</h3>
-        <p>RemoteBuddy - это платформа для обмена услугами между людьми. Вы можете предложить свои услуги или найти помощь в нашем сообществе.</p>
-        <p>Для начала зарегистрируйтесь на нашем сайте и создайте профиль. Затем вы можете предложить свои услуги или найти помощь в нашем каталоге.</p>
-    </section>
+        </section>
+        <section class="how-it-works">
+            <h3>Как это работает</h3>
+            <p>RemoteBuddy - это платформа для обмена услугами между людьми. Вы можете предложить свои услуги или найти помощь в нашем сообществе.</p>
+            <p>Для начала зарегистрируйтесь на нашем сайте и создайте профиль. Затем вы можете предложить свои услуги или найти помощь в нашем каталоге.</p>
+        </section>
+        <section class="contact-form">
+            <h3>Свяжитесь с нами</h3>
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Ваше имя" required>
+                <input type="email" id="email" placeholder="Ваш email" required>
+                <textarea id="message" rows="4" placeholder="Ваше сообщение" required></textarea>
+                <button type="submit" class="btn">Отправить</button>
+            </form>
+            <div id="formResponse" style="margin-top: 10px;"></div>
+        </section>
     </main>
     <footer>
         <p>&copy; 2024 RemoteBuddy</p>
     </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Simple validation
+            if (name && email && message) {
+                document.getElementById('formResponse').innerText = 'Спасибо за ваше сообщение, ' + name + '! Мы свяжемся с вами скоро.';
+                document.getElementById('contactForm').reset();
+            } else {
+                document.getElementById('formResponse').innerText = 'Пожалуйста, заполните все поля.';
+            }
+        });
+    </script>
 </body>
+
 </html>
+
