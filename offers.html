@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Предложения - RemoteBuddy</title>
     <link rel="stylesheet" href="styles.css">
-</head>
     <style>
         body {
             font-family: 'Source Sans 3', sans-serif;
@@ -102,25 +101,45 @@
             width: 100%;
         }
 
-        .edit-input {
-            display: none;
-            width: 100%;
-            padding: 5px;
-            margin-top: 5px;
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; 
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgb(0,0,0); 
+            background-color: rgba(0,0,0,0.4); 
+            padding-top: 60px;
         }
 
-        .edit-btn {
+        .modal-content {
+            background-color: #282c34;
+            margin: 5% auto; 
+            padding: 20px;
+            border: 1px solid #61dafb;
+            width: 80%; 
+            max-width: 500px;
+            border-radius: 8px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: white;
+            text-decoration: none;
             cursor: pointer;
-            color: #61dafb;
-            text-decoration: underline;
-        }
-
-        @media (max-width: 600px) {
-            nav ul {
-                flex-direction: column;
-            }
         }
     </style>
+</head>
 <body>
     <header>
         <h1>RemoteBuddy</h1>
@@ -129,9 +148,7 @@
                 <li><a href="index.html">Главная</a></li>
                 <li><a href="profile.html">Профиль</a></li>
                 <li><a href="offers.html">Предложения</a></li>
-                <li><a href="requests.html">Запросы</a></li>
-                <li><a href="chat.html">Чат</a></li>
-                <li><a href="reviews.html">Отзывы</a></li>
+                                <li><a href="reviews.html">Отзывы</a></li>
                 <li><a href="about.html">О проекте</a></li>
             </ul>
         </nav>
@@ -139,7 +156,7 @@
     <main>
         <section class="offers-list">
             <h2>Предложения услуг</h2>
-            <button class="btn" onclick="createOffer()">Создать новое предложение</button>
+            <button class="btn" onclick="openModal()">Создать новое предложение</button>
             <table>
                 <thead>
                     <tr>
@@ -182,22 +199,63 @@
             </table>
         </section>
     </main>
+    
+    <!-- Modal for creating a new offer -->
+    <div id="offerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Создать новое предложение</h2>
+            <form id="offerForm">
+                <label for="serviceName">Услуга:</label>
+                <input type="text" id="serviceName" required><br>
+                <label for="serviceDescription">Описание:</label>
+                <textarea id="serviceDescription" required></textarea><br>
+                <label for="servicePrice">Цена:</label>
+                <input type="number" id="servicePrice" required><br>
+                <button type="submit" class="btn">Создать предложение</button>
+            </form>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; RemoteBuddy</p>
     </footer>
 
     <script>
-        function createOffer() {
-            // Логика для создания нового предложения
-            alert("Создание нового предложения");
-            // Здесь можно добавить код для открытия формы или модального окна
+        function openModal() {
+            document.getElementById("offerModal").style.display = "block";
         }
 
+        function closeModal() {
+            document.getElementById("offerModal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("offerModal")) {
+                closeModal();
+            }
+        }
+
+        document.getElementById("offerForm").onsubmit = function(event) {
+            event.preventDefault();
+            const serviceName = document.getElementById('serviceName').value;
+            const serviceDescription = document.getElementById('serviceDescription').value;
+            const servicePrice = document.getElementById('servicePrice').value;
+
+            // Здесь можно добавить логику для сохранения нового предложения
+            alert(`Новое предложение создано:\nУслуга: ${serviceName}\nОписание: ${serviceDescription}\nЦена: ${servicePrice} руб.`);
+
+            closeModal();
+            // Сброс формы
+            document.getElementById("offerForm").reset();
+        };
+
         function viewOffer(offerName) {
-            // Логика для просмотра предложения
             alert("Просмотр предложения: " + offerName);
             // Здесь можно добавить код для перенаправления на страницу с деталями предложения
         }
     </script>
 </body>
 </html>
+
+                
