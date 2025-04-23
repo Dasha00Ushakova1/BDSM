@@ -102,6 +102,19 @@
             width: 100%;
         }
 
+        .edit-input {
+            display: none;
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+        }
+
+        .edit-btn {
+            cursor: pointer;
+            color: #61dafb;
+            text-decoration: underline;
+        }
+
         @media (max-width: 600px) {
             nav ul {
                 flex-direction: column;
@@ -126,17 +139,28 @@
         </nav>
     </header>
     <main>
-        <section class="profile-info">
+                <section class="profile-info">
             <h2>Мой профиль</h2>
             <div class="profile-details">
                 <img src="profile-pic.jpg" alt="Фотография профиля" class="profile-pic">
                 <div class="profile-data">
-                    <h3>Имя пользователя: <span id="username">Иван Иванов</span></h3>
-                                        <p>Электронная почта: <span id="email">ivan@example.com</span></p>
-                    <p>Телефон: <span id="phone">+7 (123) 456-78-90</span></p>
+                    <h3>Имя пользователя: 
+                        <span id="username">Иван Иванов</span>
+                        <span class="edit-btn" onclick="toggleEdit('username')">[Редактировать]</span>
+                        <input type="text" id="usernameInput" class="edit-input" value="Иван Иванов" onblur="saveEdit('username')">
+                    </h3>
+                    <p>Электронная почта: 
+                        <span id="email">ivan@example.com</span>
+                        <span class="edit-btn" onclick="toggleEdit('email')">[Редактировать]</span>
+                        <input type="text" id="emailInput" class="edit-input" value="ivan@example.com" onblur="saveEdit('email')">
+                    </p>
+                    <p>Телефон: 
+                        <span id="phone">+7 (123) 456-78-90</span>
+                        <span class="edit-btn" onclick="toggleEdit('phone')">[Редактировать]</span>
+                        <input type="text" id="phoneInput" class="edit-input" value="+7 (123) 456-78-90" onblur="saveEdit('phone')">
+                    </p>
                 </div>
             </div>
-            <button class="btn" onclick="editProfile()">Редактировать профиль</button>
         </section>
 
         <section class="my-offers">
@@ -152,16 +176,34 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Дизайн логотипа</td>
-                        <td>Создание уникального логотипа для вашего бизнеса.</td>
-                        <td>Активно</td>
-                        <td><button class="btn" onclick="editOffer()">Редактировать</button></td>
+                        <td>
+                            <span class="offer-name">Дизайн логотипа</span>
+                            <input type="text" class="edit-input" value="Дизайн логотипа" onblur="saveOfferEdit(this)">
+                        </td>
+                        <td>
+                            <span class="offer-description">Создание уникального логотипа для вашего бизнеса.</span>
+                            <input type="text" class="edit-input" value="Создание уникального логотипа для вашего бизнеса." onblur="saveOfferEdit(this)">
+                        </td>
+                        <td>
+                            <span class="offer-status">Активно</span>
+                            <input type="text" class="edit-input" value="Активно" onblur="saveOfferEdit(this)">
+                        </td>
+                        <td><button class="btn" onclick="toggleOfferEdit(this)">Редактировать</button></td>
                     </tr>
                     <tr>
-                        <td>Разработка сайта</td>
-                        <td>Полная разработка и поддержка веб-сайтов.</td>
-                        <td>Завершено</td>
-                        <td><button class="btn" onclick="editOffer()">Редактировать</button></td>
+                        <td>
+                            <span class="offer-name">Разработка сайта</span>
+                            <input type="text" class="edit-input" value="Разработка сайта" onblur="saveOfferEdit(this)">
+                        </td>
+                        <td>
+                            <span class="offer-description">Полная разработка и поддержка веб-сайтов.</span>
+                            <input type="text" class="edit-input" value="Полная разработка и поддержка веб-сайтов." onblur="saveOfferEdit(this)">
+                        </td>
+                        <td>
+                            <span class="offer-status">Завершено</span>
+                            <input type="text" class="edit-input" value="Завершено" onblur="saveOfferEdit(this)">
+                        </td>
+                        <td><button class="btn" onclick="toggleOfferEdit(this)">Редактировать</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -180,10 +222,34 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Поиск копирайтера</td>
-                        <td>Нужен текст для сайта и рекламных материалов.</td>
-                        <td>В процессе</td>
-                        <td><button class="btn" onclick="editRequest()">Редактировать</button></td>
+                        <td>
+                            <span class="request-name">Поиск копирайтера</span>
+                            <input type="text" class="edit-input" value="Поиск копирайтера" onblur="saveRequestEdit(this)">
+                        </td>
+                        <td>
+                            <span class="request-description">Нужен текст для сайта и рекламных материалов.</span>
+                                                        <input type="text" class="edit-input" value="Нужен текст для сайта и рекламных материалов." onblur="saveRequestEdit(this)">
+                        </td>
+                        <td>
+                            <span class="request-status">В процессе</span>
+                            <input type="text" class="edit-input" value="В процессе" onblur="saveRequestEdit(this)">
+                        </td>
+                        <td><button class="btn" onclick="toggleRequestEdit(this)">Редактировать</button></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="request-name">Разработка мобильного приложения</span>
+                            <input type="text" class="edit-input" value="Разработка мобильного приложения" onblur="saveRequestEdit(this)">
+                        </td>
+                        <td>
+                            <span class="request-description">Необходимо создать приложение для iOS и Android.</span>
+                            <input type="text" class="edit-input" value="Необходимо создать приложение для iOS и Android." onblur="saveRequestEdit(this)">
+                        </td>
+                        <td>
+                            <span class="request-status">Ожидание</span>
+                            <input type="text" class="edit-input" value="Ожидание" onblur="saveRequestEdit(this)">
+                        </td>
+                        <td><button class="btn" onclick="toggleRequestEdit(this)">Редактировать</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -194,21 +260,64 @@
     </footer>
 
     <script>
-        function editProfile() {
-            alert("Редактирование профиля");
-            // Здесь можно добавить логику для редактирования профиля
+        // Функции для редактирования профиля, предложений и запросов
+        function toggleEdit(field) {
+            const span = document.getElementById(field);
+            const input = document.getElementById(field + 'Input');
+            if (input.style.display === 'none' || input.style.display === '') {
+                input.style.display = 'inline-block';
+                span.style.display = 'none';
+                input.focus();
+            } else {
+                input.style.display = 'none';
+                span.style.display = 'inline';
+            }
         }
 
-        function editOffer() {
-            alert("Редактирование предложения");
-            // Здесь можно добавить логику для редактирования предложения
+        function saveEdit(field) {
+            const span = document.getElementById(field);
+            const input = document.getElementById(field + 'Input');
+            span.innerText = input.value;
+            input.style.display = 'none';
+            span.style.display = 'inline';
         }
 
-        function editRequest() {
-            alert("Редактирование запроса");
-            // Здесь можно добавить логику для редактирования запроса
+        function toggleOfferEdit(button) {
+            const row = button.closest('tr');
+            const inputs = row.querySelectorAll('.edit-input');
+            inputs.forEach(input => {
+                input.style.display = input.style.display === 'none' ? 'inline-block' : 'none';
+                const span = input.previousElementSibling;
+                span.style.display = span.style.display === 'none' ? 'inline' : 'none';
+            });
+        }
+
+        function saveOfferEdit(input) {
+            const span = input.previousElementSibling;
+            span.innerText = input.value;
+            input.style.display = 'none';
+            span.style.display = 'inline';
+        }
+
+        function toggleRequestEdit(button) {
+            const row = button.closest('tr');
+            const inputs = row.querySelectorAll('.edit-input');
+            inputs.forEach(input => {
+                input.style.display = input.style.display === 'none' ? 'inline-block' : 'none';
+                const span = input.previousElementSibling;
+                span.style.display = span.style.display === 'none' ? 'inline' : 'none';
+            });
+        }
+
+        function saveRequestEdit(input) {
+            const span = input.previousElementSibling;
+            span.innerText = input.value;
+            input.style.display = 'none';
+            span.style.display = 'inline';
         }
     </script>
 </body>
 </html>
+
+                           
 
