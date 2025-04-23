@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход - RemoteBuddy</title>
+    <link rel="icon" href="https://syhanoff.ru/wp-content/themes/portfolio/assets/favicon.ico" sizes="32x32" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: #1e1e1e;
+            color: #f0f0f0;
+            line-height: 1.6;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background-color: #282c34;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+        .btn {
+            background-color: #61dafb;
+            color: #282c34;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Вход в RemoteBuddy</h2>
+        <form onsubmit="return loginUser ()">
+            <input type="text" id="username" placeholder="Имя пользователя" required><br><br>
+            <input type="password" id="password" placeholder="Пароль" required><br><br>
+            <button type="submit" class="btn">Войти</button>
+        </form>
+    </div>
+
+    <script>
+        function loginUser () {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Здесь должна быть логика проверки пользователя
+            if (username === "Иван Иванов" && password === "пароль") {
+                // Перенаправление на профиль
+                window.location.href = "profile.html"; // Переход на страницу профиля
+            } else {
+                alert("Неверное имя пользователя или пароль.");
+            }
+            return false; // Предотвращает отправку формы
+        }
+    </script>
+</body>
+</html>
