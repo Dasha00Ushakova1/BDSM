@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RemoteBuddy - Главная страница</title>
     <link rel="icon" href="https://syhanoff.ru/wp-content/themes/portfolio/assets/favicon.ico" sizes="32x32" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Source Sans 3', sans-serif;
@@ -68,7 +69,6 @@
         .reviews-section, .how-it-works, .contact-form {
             padding: 20px;
             text-align: center;
-            background: white;
             margin: 20px auto;
             border-radius: 8px;
             max-width: 600px;
@@ -81,7 +81,6 @@
         }
 
         .review {
-            background-color: #e9ecef;
             border: 1px solid #ccc;
             border-radius: 5px;
             padding: 15px;
@@ -143,11 +142,9 @@
                 <div class="review">
                     <p>"Отличная платформа для обмена услугами!"</p>
                     <span>- Анна, фрилансер</span>
-                    </div>
-                          
+                </div>
                 <div class="review">
-                                    
-                    <p>"Я нашел отличного помощника на RemoteBuddy!"</p>
+                                        <p>"Я нашел отличного помощника на RemoteBuddy!"</p>
                     <span>- Иван, бизнесмен</span>
                 </div>
                 <div class="review">
@@ -169,7 +166,6 @@
                 <textarea id="message" rows="4" placeholder="Ваше сообщение" required></textarea>
                 <button type="submit" class="btn">Отправить</button>
             </form>
-            <div id="formResponse" style="margin-top: 10px;"></div>
         </section>
     </main>
     <footer>
@@ -185,10 +181,10 @@
 
             // Simple validation
             if (name && email && message) {
-                document.getElementById('formResponse').innerText = 'Спасибо за ваше сообщение, ' + name + '! Мы свяжемся с вами скоро.';
+                alert('Спасибо за ваше сообщение, ' + name + '! Мы свяжемся с вами скоро.');
                 document.getElementById('contactForm').reset();
             } else {
-                document.getElementById('formResponse').innerText = 'Пожалуйста, заполните все поля.';
+                alert('Пожалуйста, заполните все поля.');
             }
         });
     </script>
