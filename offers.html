@@ -3,9 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Предложения - </title>
+    <title>Предложения - RemoteBuddy</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+    <style>
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: #1e1e1e; /* Dark background */
+            color: #f0f0f0; /* Light text */
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        header {
+            background-color: #282c34; /* Dark blue background */
+            color: #61dafb; /* Light blue text */
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #61dafb; /* Light blue text */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .profile-info, .my-offers, .my-requests {
+            background-color: #282c34; /* Dark background for sections */
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 8px;
+            max-width: 800px;
+            text-align: left;
+        }
+
+        .profile-pic {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            background-color: #61dafb; /* Light blue button */
+            color: #282c34; /* Dark text on button */
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 0;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #61dafb;
+            text-align: left;
+        }
+
+        th {
+            background-color: #20232a;
+        }
+
+        footer {
+            background-color: #282c34; /* Dark background */
+            color: #61dafb; /* Light blue text */
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .edit-input {
+            display: none;
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+        }
+
+        .edit-btn {
+            cursor: pointer;
+            color: #61dafb;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            nav ul {
+                flex-direction: column;
+            }
+        }
+    </style>
 <body>
     <header>
         <h1>RemoteBuddy</h1>
@@ -42,7 +157,7 @@
                         <td>5000 руб.</td>
                         <td>Иван Иванов</td>
                         <td>
-                            <button class="btn" onclick="viewOffer()">Просмотреть</button>
+                            <button class="btn" onclick="viewOffer('Дизайн логотипа')">Просмотреть</button>
                         </td>
                     </tr>
                     <tr>
@@ -51,7 +166,7 @@
                         <td>30000 руб.</td>
                         <td>Мария Петрова</td>
                         <td>
-                            <button class="btn" onclick="viewOffer()">Просмотреть</button>
+                            <button class="btn" onclick="viewOffer('Разработка сайта')">Просмотреть</button>
                         </td>
                     </tr>
                     <tr>
@@ -60,7 +175,7 @@
                         <td>2000 руб.</td>
                         <td>Светлана Смирнова</td>
                         <td>
-                            <button class="btn" onclick="viewOffer()">Просмотреть</button>
+                            <button class="btn" onclick="viewOffer('Копирайтинг')">Просмотреть</button>
                         </td>
                     </tr>
                 </tbody>
@@ -68,7 +183,7 @@
         </section>
     </main>
     <footer>
-        <p>&copy; 2025  Все права защищены.</p>
+        <p>&copy; 2025 Все права защищены.</p>
         <ul>
             <li><a href="privacy.html">Политика конфиденциальности</a></li>
             <li><a href="terms.html">Условия использования</a></li>
@@ -79,11 +194,13 @@
         function createOffer() {
             // Логика для создания нового предложения
             alert("Создание нового предложения");
+            // Здесь можно добавить код для открытия формы или модального окна
         }
 
-        function viewOffer() {
+        function viewOffer(offerName) {
             // Логика для просмотра предложения
-            alert("Просмотр предложения");
+            alert("Просмотр предложения: " + offerName);
+            // Здесь можно добавить код для перенаправления на страницу с деталями предложения
         }
     </script>
 </body>
