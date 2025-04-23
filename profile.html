@@ -3,8 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Профиль пользователя - </title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Профиль пользователя - RemoteBuddy</title>
+    <link rel="icon" href="https://syhanoff.ru/wp-content/themes/portfolio/assets/favicon.ico" sizes="32x32" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: #1e1e1e; /* Тёмный фон */
+            color: #f0f0f0; /* Светлый текст */
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        header {
+            background-color: #282c34; /* Тёмно-синий фон */
+            color: #61dafb; /* Светло-голубой текст */
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #61dafb; /* Светло-голубой текст */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .profile-info, .my-offers, .my-requests {
+            background-color: #282c34; /* Тёмный фон для секций */
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 8px;
+            max-width: 800px;
+            text-align: left;
+        }
+
+        .profile-pic {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+
+        .btn {
+            background-color: #61dafb; /* Светло-голубая кнопка */
+            color: #282c34; /* Тёмный текст на кнопке */
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 0;
+            display: inline-block;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #61dafb;
+            text-align: left;
+        }
+
+        th {
+            background-color: #20232a;
+        }
+
+        footer {
+            background-color: #282c34; /* Тёмный фон */
+            color: #61dafb; /* Светло-голубой текст */
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>RemoteBuddy</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="profile.html">Профиль</a></li>
+                <li><a href="offers.html">Предложения</a></li>
+                <li><a href="requests.html">Запросы</a></li>
+                <li><a href="chat.html">Чат</a></li>
+                <li><a href="reviews.html">Отзывы</a></li>
+                <li><a href="about.html">О проекте</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="profile-info">
+            <h2>Мой профиль</h2>
+            <div class="profile-details">
+                <img src="profile-pic.jpg" alt="Фотография профиля" class="profile-pic">
+                <div class="profile-data">
+                    <h3>Имя пользователя: <span id="username">Иван Иванов</span></h3>
+                    <p>Электронная почта: <span id="email">ivan@example.com</span></p>
+                    <p>Телефон: <span id="phone">+7 (123) 456-78-<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль пользователя - RemoteBuddy</title>
+    <link rel="icon" href="https://syhanoff.ru/wp-content/themes/portfolio/assets/favicon.ico" sizes="32x32" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: #1e1e1e; /* Тёмный фон */
+            color: #f0f0f0; /* Светлый текст */
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        header {
+            background-color: #282c34; /* Тёмно-синий фон */
+            color: #61dafb; /* Светло-голубой текст */
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #61dafb; /* Светло-голубой текст */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .profile-info, .my-offers, .my-requests {
+            background-color: #282c34; /* Тёмный фон для секций */
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 8px;
+            max-width: 800px;
+            text-align: left;
+        }
+
+        .profile-pic {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+
+        .btn {
+            background-color: #61dafb; /* Светло-голубая кнопка */
+            color: #282c34; /* Тёмный текст на кнопке */
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 0;
+            display: inline-block;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #61dafb;
+            text-align: left;
+        }
+
+        th {
+            background-color: #20232a;
+        }
+
+        footer {
+            background-color: #282c34; /* Тёмный фон */
+            color: #61dafb; /* Светло-голубой текст */
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -86,7 +307,7 @@
         </section>
     </main>
     <footer>
-        <p>&copy; 2025  Все права защищены.</p>
+        <p>&copy; 2025 Все права защищены.</p>
         <ul>
             <li><a href="privacy.html">Политика конфиденциальности</a></li>
             <li><a href="terms.html">Условия использования</a></li>
@@ -111,3 +332,5 @@
     </script>
 </body>
 </html>
+
+
