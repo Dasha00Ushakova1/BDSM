@@ -49,20 +49,13 @@
             text-align: center;
         }
 
-        .profile-info, .my-offers, .my-requests {
+        .profile-info, .my-offers, .my-requests, .registration {
             background-color: #282c34; /* Dark background for sections */
             padding: 20px;
             margin: 20px auto;
             border-radius: 8px;
             max-width: 800px;
             text-align: left;
-        }
-
-        .profile-pic {
-            border-radius: 50%;
-            width: 100px;
-            height: 100px;
-            margin-bottom: 15px;
         }
 
         .btn {
@@ -104,15 +97,9 @@
 
         .edit-input {
             display: none;
-            width: 100%;
+            width: calc(100% - 20px);
             padding: 5px;
             margin-top: 5px;
-        }
-
-        .edit-btn {
-            cursor: pointer;
-            color: #61dafb;
-            text-decoration: underline;
         }
 
         @media (max-width: 600px) {
@@ -139,61 +126,17 @@
         </nav>
     </header>
     <main>
-                <section class="profile-info">
+        <section class="profile-info">
             <h2>Информация о пользователе</h2>
-            <p>Email: <span id="userEmail">example@example.com</span><input type="text" id="userEmailInput" class="edit-input" value="example@example.com" onblur="saveEdit('userEmail', 'userEmailInput')"></p>
-            <p>Имя: <span id="userName">Имя пользователя</span><input type="text" id="userNameInput" class="edit-input" value="Имя пользователя" onblur="saveEdit('userName', 'userNameInput')"></p>
+            <p>Email: <span id="userEmail">example@example.com</span>
+                <input type="text" id="userEmailInput" class="edit-input" value="example@example.com" onblur="saveEdit('userEmail', 'userEmailInput')">
+            </p>
+                        <p>Имя: <span id="userName">Имя пользователя</span>
+                <input type="text" id="userNameInput" class="edit-input" value="Имя пользователя" onblur="saveEdit('userName', 'userNameInput')">
+            </p>
             <button class="btn" onclick="toggleEdit('userEmail')">Редактировать Email</button>
             <button class="btn" onclick="toggleEdit('userName')">Редактировать Имя</button>
         </section>
-        <script>
-        function toggleEdit(field) {
-            const span = document.getElementById(field);
-            const input = document.getElementById(field + 'Input');
-            if (input.style.display === 'none' || input.style.display === '') {
-                input.style.display = 'inline-block';
-                span.style.display = 'none';
-                input.focus();
-            } else {
-                input.style.display = 'none';
-                span.style.display = 'inline';
-            }
-        }
-
-        function saveEdit(field, inputId) {
-            const span = document.getElementById(field);
-            const input = document.getElementById(inputId);
-            span.innerText = input.value;
-            input.style.display = 'none';
-            span.style.display = 'inline';
-        }
-
-        function registerUser (event) {
-            event.preventDefault();
-
-            const email = document.getElementById('regEmail').value;
-            const password = document.getElementById('regPassword').value;
-
-            fetch('/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email, password }),
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert('Регистрация прошла успешно!');
-                } else {
-                    alert('Ошибка: ' + data.message);
-                }
-            })
-            .catch((error) => {
-                console.error('Ошибка:', error);
-            });
-        }
-    </script>
 
         <section class="registration">
             <h2>Регистрация</h2>
@@ -204,7 +147,7 @@
                 <label for="regPassword">Пароль:</label>
                 <input type="password" id="regPassword" required>
                 
-                <button type="submit">Зарегистрироваться</button>
+                <button type="submit" class="btn">Зарегистрироваться</button>
             </form>
         </section>
 
@@ -273,7 +216,7 @@
                         </td>
                         <td>
                             <span class="request-description">Нужен текст для сайта и рекламных материалов.</span>
-                                                        <input type="text" class="edit-input" value="Нужен текст для сайта и рекламных материалов." onblur="saveRequestEdit(this)">
+                            <input type="text" class="edit-input" value="Нужен текст для сайта и рекламных материалов." onblur="saveRequestEdit(this)">
                         </td>
                         <td>
                             <span class="request-status">В процессе</span>
@@ -283,16 +226,16 @@
                     </tr>
                     <tr>
                         <td>
-                            <span class="request-name">Разработка мобильного приложения</span>
-                            <input type="text" class="edit-input" value="Разработка мобильного приложения" onblur="saveRequestEdit(this)">
+                                                        <span class="request-name">Запрос на SEO-оптимизацию</span>
+                            <input type="text" class="edit-input" value="Запрос на SEO-оптимизацию" onblur="saveRequestEdit(this)">
                         </td>
                         <td>
-                            <span class="request-description">Необходимо создать приложение для iOS и Android.</span>
-                            <input type="text" class="edit-input" value="Необходимо создать приложение для iOS и Android." onblur="saveRequestEdit(this)">
+                            <span class="request-description">Оптимизация сайта для поисковых систем.</span>
+                            <input type="text" class="edit-input" value="Оптимизация сайта для поисковых систем." onblur="saveRequestEdit(this)">
                         </td>
                         <td>
-                            <span class="request-status">Ожидание</span>
-                            <input type="text" class="edit-input" value="Ожидание" onblur="saveRequestEdit(this)">
+                            <span class="request-status">Новый</span>
+                            <input type="text" class="edit-input" value="Новый" onblur="saveRequestEdit(this)">
                         </td>
                         <td><button class="btn" onclick="toggleRequestEdit(this)">Редактировать</button></td>
                     </tr>
@@ -300,110 +243,78 @@
             </table>
         </section>
     </main>
+    
     <footer>
-        <p>&copy;  RemoteBuddy.</p>
+        <p>&copy; 2025 RemoteBuddy. Все права защищены.</p>
     </footer>
 
     <script>
-        // Функции для редактирования профиля, предложений и запросов
-        function toggleEdit(field) {
-            const span = document.getElementById(field);
-            const input = document.getElementById(field + 'Input');
-            if (input.style.display === 'none' || input.style.display === '') {
-                input.style.display = 'inline-block';
-                span.style.display = 'none';
-                input.focus();
+        function toggleEdit(fieldId) {
+            const span = document.getElementById(fieldId);
+            const input = document.getElementById(fieldId + 'Input');
+            if (span.style.display === "none") {
+                span.style.display = "inline";
+                input.style.display = "none";
             } else {
-                input.style.display = 'none';
-                span.style.display = 'inline';
+                span.style.display = "none";
+                input.style.display = "inline";
+                input.focus();
             }
         }
-const express = require('express');
-const bcrypt = require('bcrypt');
-const mysql = require('mysql');
-const app = express();
 
-app.use(express.json());
-
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'your_username',
-    password: 'your_password',
-    database: 'your_database'
-});
-
-// Регистрация пользователя
-app.post('/register', (req, res) => {
-    const { email, password } = req.body;
-
-    // Хеширование пароля
-        // Хеширование пароля
-    bcrypt.hash(password, 10, (err, hash) => {
-        if (err) return res.status(500).json({ success: false, message: 'Ошибка хеширования пароля' });
-
-        // Вставка пользователя в базу данных
-        db.query('INSERT INTO users (email, password) VALUES (?, ?)', [email, hash], (err, result) => {
-            if (err) {
-                if (err.code === 'ER_DUP_ENTRY') {
-                    return res.status(400).json({ success: false, message: 'Пользователь с этой электронной почтой уже существует' });
-                }
-                return res.status(500).json({ success: false, message: 'Ошибка при добавлении пользователя' });
-            }
-            res.status(201).json({ success: true, message: 'Пользователь зарегистрирован' });
-        });
-    });
-});
-
-// Запуск сервера
-app.listen(3000, () => {
-    console.log('Сервер запущен на порту 3000');
-});
-
-
-        function saveEdit(field) {
-            const span = document.getElementById(field);
-            const input = document.getElementById(field + 'Input');
-            span.innerText = input.value;
-            input.style.display = 'none';
-            span.style.display = 'inline';
+        function saveEdit(spanId, inputId) {
+            const span = document.getElementById(spanId);
+            const input = document.getElementById(inputId);
+            span.textContent = input.value;
+            span.style.display = "inline";
+            input.style.display = "none";
         }
 
         function toggleOfferEdit(button) {
             const row = button.closest('tr');
             const inputs = row.querySelectorAll('.edit-input');
             inputs.forEach(input => {
-                input.style.display = input.style.display === 'none' ? 'inline-block' : 'none';
-                const span = input.previousElementSibling;
-                span.style.display = span.style.display === 'none' ? 'inline' : 'none';
+                input.style.display = input.style.display === "none" ? "inline" : "none";
+                if (input.style.display === "inline") input.focus();
             });
         }
 
         function saveOfferEdit(input) {
-            const span = input.previousElementSibling;
-            span.innerText = input.value;
-            input.style.display = 'none';
-            span.style.display = 'inline';
+            const row = input.closest('tr');
+            const spans = row.querySelectorAll('span');
+            spans.forEach((span, index) => {
+                span.textContent = row.querySelectorAll('.edit-input')[index].value;
+            });
+            const inputs = row.querySelectorAll('.edit-input');
+            inputs.forEach(input => input.style.display = "none");
         }
 
         function toggleRequestEdit(button) {
             const row = button.closest('tr');
             const inputs = row.querySelectorAll('.edit-input');
             inputs.forEach(input => {
-                input.style.display = input.style.display === 'none' ? 'inline-block' : 'none';
-                const span = input.previousElementSibling;
-                span.style.display = span.style.display === 'none' ? 'inline' : 'none';
+                input.style.display = input.style.display === "none" ? "inline" : "none";
+                if (input.style.display === "inline") input.focus();
             });
         }
 
         function saveRequestEdit(input) {
-            const span = input.previousElementSibling;
-            span.innerText = input.value;
-            input.style.display = 'none';
-            span.style.display = 'inline';
+            const row = input.closest('tr');
+            const spans = row.querySelectorAll('span');
+            spans.forEach((span, index) => {
+                span.textContent = row.querySelectorAll('.edit-input')[index].value;
+            });
+            const inputs = row.querySelectorAll('.edit-input');
+            inputs.forEach(input => input.style.display = "none");
+        }
+
+        function registerUser (event) {
+            event.preventDefault();
+            // Add registration logic here
+            alert('Пользователь зарегистрирован!');
         }
     </script>
 </body>
 </html>
 
-                           
 
