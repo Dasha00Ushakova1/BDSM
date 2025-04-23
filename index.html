@@ -15,16 +15,19 @@
         body {
             background-color: #f4f4f4;
             color: #333;
+            line-height: 1.6;
         }
 
         header {
             background-color: #007bff;
             color: white;
             padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
             text-align: center;
+            font-size: 2.5em;
         }
 
         nav ul {
@@ -42,6 +45,11 @@
             color: white;
             text-decoration: none;
             font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #d1e7fd;
         }
 
         .hero {
@@ -50,11 +58,12 @@
             background-position: center;
             color: white;
             text-align: center;
-            padding: 60px 20px;
+            padding: 80px 20px;
         }
 
         .hero h2 {
             font-size: 2.5em;
+            margin-bottom: 10px;
         }
 
         .hero p {
@@ -70,11 +79,12 @@
             border-radius: 5px;
             margin: 10px;
             display: inline-block;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
         .btn:hover {
             background-color: #218838;
+            transform: scale(1.05);
         }
 
         .reviews-section, .how-it-works {
@@ -97,6 +107,11 @@
             margin: 10px;
             width: 300px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .review:hover {
+            transform: scale(1.02);
         }
 
         footer {
@@ -107,6 +122,12 @@
             position: relative;
             bottom: 0;
             width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .review {
+                width: 90%;
+            }
         }
     </style>
 </head>
@@ -131,7 +152,7 @@
         <section class="hero">
             <div class="container">
                 <h2>Добро пожаловать в RemoteBuddy!</h2>
-                <p>Найдите помощь или предложите свои услуги в нашем сообществе.</p>
+                                <p>Найдите помощь или предложите свои услуги в нашем сообществе.</p>
                 <a href="signup.html" class="btn">Зарегистрироваться</a>
                 <a href="login.html" class="btn">Войти</a>
             </div>
@@ -145,7 +166,7 @@
                         <span>- Анна, фрилансер</span>
                     </div>
                     <div class="review">
-                                                <p>"RemoteBuddy помог мне найти программиста, который быстро решил мою задачу. Очень рекомендую!"</p>
+                        <p>"RemoteBuddy помог мне найти программиста, который быстро решил мою задачу. Очень рекомендую!"</p>
                         <span>- Игорь, малый бизнес</span>
                     </div>
                     <div class="review">
