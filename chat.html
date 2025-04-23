@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <link rel="icon" href="https://syhanoff.ru/wp-content/themes/portfolio/assets/favicon.ico" sizes="32x32" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400&display=swap" rel="stylesheet">
     <title>Чат - RemoteBuddy</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
+            background-color: #e0e0e0; /* Изменен цвет фона */
             color: #333;
             line-height: 1.6;
             margin: 0;
@@ -42,7 +40,7 @@
             justify-content: center;
         }
         .chat-container {
-            background: white;
+            background: #ffffff; /* Изменен цвет фона чата */
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 100%;
@@ -135,11 +133,8 @@
         </section>
     </main>
     <footer>
-                <p>&copy; RemoteBuddy
-.</p>
-        <ul>
-    
-        </ul>
+        <p>&copy; RemoteBuddy</p>
+                </ul>
     </footer>
 
     <script>
@@ -164,7 +159,7 @@
             }
         });
 
-        // Пример функции для получения сообщений от других пользователей (заглушка)
+        // Пример функции для получения сообщений от других пользователей
         function receiveMessage(userName, messageText) {
             const chatBox = document.getElementById('chat-box');
             const messageDiv = document.createElement('div');
@@ -174,14 +169,26 @@
             chatBox.scrollTop = chatBox.scrollHeight; // Прокрутить вниз
         }
 
-        // Пример вызова receiveMessage (можно заменить на реальную логику получения сообщений)
-        setTimeout(() => {
-            receiveMessage('Пользователь1', 'Привет всем!');
-        }, 3000);
+        // Пример вызова receiveMessage с 10 различными сообщениями
+        const messages = [
+            { userName: 'Анна', text: 'Привет всем!' },
+            { userName: 'Иван', text: 'Как дела?' },
+            { userName: 'Светлана', text: 'Кто что делал на выходных?' },
+            { userName: 'Дмитрий', text: 'Я ездил на дачу.' },
+            { userName: 'Елена', text: 'Слышали про новую игру?' },
+            { userName: 'Алексей', text: 'Да, она выглядит интересно!' },
+            { userName: 'Мария', text: 'Я тоже хочу поиграть!' },
+            { userName: 'Сергей', text: 'Когда собираемся играть?' },
+            { userName: 'Ольга', text: 'Давайте в пятницу?' },
+            { userName: 'Кирилл', text: 'Отличная идея!' },
+        ];
 
-        setTimeout(() => {
-            receiveMessage('Пользователь2', 'Как дела?');
-        }, 6000);
+        // Имитация получения сообщений
+        messages.forEach((msg, index) => {
+            setTimeout(() => {
+                receiveMessage(msg.userName, msg.text);
+            }, index * 2000); // Каждое сообщение через 2 секунды
+        });
     </script>
 </body>
 </html>
