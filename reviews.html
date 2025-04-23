@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отзывы - </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>RemoteBuddy</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="profile.html">Профиль</a></li>
+                <li><a href="offers.html">Предложения</a></li>
+                <li><a href="requests.html">Запросы</a></li>
+                <li><a href="chat.html">Чат</a></li>
+                <li><a href="reviews.html">Отзывы</a></li>
+                <li><a href="about.html">О проекте</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="reviews-container">
+            <h2>Отзывы пользователей</h2>
+            <button class="btn" onclick="openReviewForm()">Оставить отзыв</button>
+            <div class="reviews-list" id="reviews-list">
+                <div class="review">
+                    <h3>Иван Иванов</h3>
+                    <p>Отличная платформа для поиска фрилансеров! Очень рекомендую.</p>
+                    <span class="timestamp">10 апреля 2025</span>
+                </div>
+                <div class="review">
+                    <h3>Мария Петрова</h3>
+                    <p>Быстро нашла нужного специалиста. Спасибо!</p>
+                    <span class="timestamp">15 апреля 2025</span>
+                </div>
+                <div class="review">
+                    <h3>Светлана Смирнова</h3>
+                    <p>Пользуюсь услугами платформы уже несколько месяцев и очень довольна.</p>
+                    <span class="timestamp">20 апреля 2025</span>
+                </div>
+                <!-- Добавьте больше отзывов здесь -->
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025  Все права защищены.</p>
+        <ul>
+            <li><a href="privacy.html">Политика конфиденциальности</a></li>
+            <li><a href="terms.html">Условия использования</a></li>
+        </ul>
+    </footer>
+
+    <script>
+        function openReviewForm() {
+            alert("Открыть форму для оставления отзыва");
+            // Здесь можно добавить логику для открытия модального окна с формой для отзыва
+        }
+    </script>
+</body>
+</html>
