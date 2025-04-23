@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль пользователя - </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>RemoteBuddy</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="profile.html">Профиль</a></li>
+                <li><a href="offers.html">Предложения</a></li>
+                <li><a href="requests.html">Запросы</a></li>
+                <li><a href="chat.html">Чат</a></li>
+                <li><a href="reviews.html">Отзывы</a></li>
+                <li><a href="about.html">О проекте</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="profile-info">
+            <h2>Мой профиль</h2>
+            <div class="profile-details">
+                <img src="profile-pic.jpg" alt="Фотография профиля" class="profile-pic">
+                <div class="profile-data">
+                    <h3>Имя пользователя: <span id="username">Иван Иванов</span></h3>
+                    <p>Электронная почта: <span id="email">ivan@example.com</span></p>
+                    <p>Телефон: <span id="phone">+7 (123) 456-78-90</span></p>
+                </div>
+            </div>
+            <button class="btn" onclick="editProfile()">Редактировать профиль</button>
+        </section>
+
+        <section class="my-offers">
+            <h3>Мои предложения</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Услуга</th>
+                        <th>Описание</th>
+                        <th>Статус</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Дизайн логотипа</td>
+                        <td>Создание уникального логотипа для вашего бизнеса.</td>
+                        <td>Активно</td>
+                        <td><button class="btn" onclick="editOffer()">Редактировать</button></td>
+                    </tr>
+                    <tr>
+                        <td>Разработка сайта</td>
+                        <td>Полная разработка и поддержка веб-сайтов.</td>
+                        <td>Завершено</td>
+                        <td><button class="btn" onclick="editOffer()">Редактировать</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="my-requests">
+            <h3>Мои запросы</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Услуга</th>
+                        <th>Описание</th>
+                        <th>Статус</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Поиск копирайтера</td>
+                        <td>Нужен текст для сайта и рекламных материалов.</td>
+                        <td>В процессе</td>
+                        <td><button class="btn" onclick="editRequest()">Редактировать</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025  Все права защищены.</p>
+        <ul>
+            <li><a href="privacy.html">Политика конфиденциальности</a></li>
+            <li><a href="terms.html">Условия использования</a></li>
+        </ul>
+    </footer>
+
+    <script>
+        function editProfile() {
+            // Логика для редактирования профиля
+            alert("Редактирование профиля");
+        }
+
+        function editOffer() {
+            // Логика для редактирования предложения
+            alert("Редактирование предложения");
+        }
+
+        function editRequest() {
+            // Логика для редактирования запроса
+            alert("Редактирование запроса");
+        }
+    </script>
+</body>
+</html>
