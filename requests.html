@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Запросы - RemoteBuddy</title>
     <link rel="stylesheet" href="styles.css">
-   <style>
+    <style>
         body {
             font-family: 'Source Sans 3', sans-serif;
-            background-color: #1e1e1e; /* Dark background */
-            color: #f0f0f0; /* Light text */
+            background-color: #1e1e1e; /* Темный фон */
+            color: #f0f0f0; /* Светлый текст */
             line-height: 1.6;
             margin: 0;
         }
 
         header {
-            background-color: #282c34; /* Dark blue background */
-            color: #61dafb; /* Light blue text */
+            background-color: #282c34; /* Темно-синий фон */
+            color: #61dafb; /* Светло-синий текст */
             padding: 15px;
             text-align: center;
         }
@@ -34,7 +34,7 @@
         }
 
         nav ul li a {
-            color: #61dafb; /* Light blue text */
+            color: #61dafb; /* Светло-синий текст */
             text-decoration: none;
             font-weight: bold;
         }
@@ -48,8 +48,8 @@
             text-align: center;
         }
 
-        .profile-info, .my-offers, .my-requests, .registration {
-            background-color: #282c34; /* Dark background for sections */
+        .requests-list {
+            background-color: #282c34; /* Темный фон для секций */
             padding: 20px;
             margin: 20px auto;
             border-radius: 8px;
@@ -58,8 +58,8 @@
         }
 
         .btn {
-            background-color: #61dafb; /* Light blue button */
-            color: #282c34; /* Dark text on button */
+            background-color: #61dafb; /* Светло-синий кнопка */
+            color: #282c34; /* Темный текст на кнопке */
             padding: 10px 15px;
             text-decoration: none;
             border-radius: 5px;
@@ -85,8 +85,8 @@
         }
 
         footer {
-            background-color: #282c34; /* Dark background */
-            color: #61dafb; /* Light blue text */
+            background-color: #282c34; /* Темный фон */
+            color: #61dafb; /* Светло-синий текст */
             text-align: center;
             padding: 10px 0;
             position: relative;
@@ -94,11 +94,9 @@
             width: 100%;
         }
 
-        .edit-input {
-            display: none;
-            width: calc(100% - 20px);
-            padding: 5px;
-            margin-top: 5px;
+        .form-container {
+            display: none; /* Скрыть форму по умолчанию */
+            margin-top: 20px;
         }
 
         @media (max-width: 600px) {
@@ -130,7 +128,7 @@
             <div class="form-container" id="requestFormContainer">
                 <h3>Создать запрос</h3>
                 <input type="text" id="requestService" placeholder="Услуга" required>
-                <textarea id="requestDescription" placeholder="Описание" required></textarea>
+                                <textarea id="requestDescription" placeholder="Описание" required></textarea>
                 <button class="btn" onclick="submitRequest()">Отправить запрос</button>
                 <button class="btn" onclick="toggleRequestForm()">Отмена</button>
             </div>
@@ -159,11 +157,15 @@
     </footer>
 
     <script>
-        let requests = [];
+        let requests = [
+            { service: "Услуга 1", description: "Описание услуги 1", status: "Завершен", author: "Пользователь 1" },
+            { service: "Услуга 2", description: "Описание услуги 2", status: "В процессе", author: "Пользователь 2" },
+            { service: "Услуга 3", description: "Описание услуги 3", status: "Отменен", author: "Пользователь 3" }
+        ];
 
         function toggleRequestForm() {
             const formContainer = document.getElementById('requestFormContainer');
-            formContainer.style.display = formContainer.style.display === 'none' ? 'block' : 'none';
+            formContainer.style.display = formContainer.style.display === 'none' || formContainer.style.display === '' ? 'block' : 'none';
         }
 
         function submitRequest() {
@@ -214,7 +216,9 @@
             document.getElementById('requestService').value = '';
             document.getElementById('requestDescription').value = '';
         }
+
+        // Инициализация отображения запросов при загрузке страницы
+        document.addEventListener('DOMContentLoaded', renderRequests);
     </script>
 </body>
 </html>
-
