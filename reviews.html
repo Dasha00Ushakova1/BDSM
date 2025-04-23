@@ -112,13 +112,14 @@
         }
 
         .modal-content {
-            background-color: #fefefe;
+            background-color: #282c34; /* Changed to match the theme */
             margin: 5% auto; /* 15% from the top and centered */
             padding: 20px;
             border: 1px solid #888;
             width: 80%; /* Could be more or less, depending on screen size */
             border-radius: 8px;
             text-align: left;
+            color: #f0f0f0; /* Light text for better readability */
         }
 
         .close {
@@ -130,9 +131,9 @@
 
         .close:hover,
         .close:focus {
-            color: black;
+            color: #61dafb; /* Change close button color on hover */
             text-decoration: none;
-            cursor: pointer;
+                      cursor: pointer;
         }
 
         @media (max-width: 600px) {
@@ -144,7 +145,7 @@
 </head>
 <body>
     <header>
-                <h1>RemoteBuddy</h1>
+        <h1>RemoteBuddy</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Главная</a></li>
@@ -163,6 +164,7 @@
             
             <div class="reviews-list" id="reviews-list">
                 <div class="review">
+                    <button class="btn" onclick="openReviewForm()">Оставить отзыв</button>
                     <h3>Иван Иванов</h3>
                     <p>Отличная платформа для поиска фрилансеров! Очень рекомендую.</p>
                     <span class="timestamp">10 апреля 2025</span>
@@ -172,7 +174,6 @@
                     <p>Пользуюсь услугами платформы уже несколько месяцев и очень довольна.</p>
                     <span class="timestamp">20 апреля 2025</span>
                 </div>
-                <button class="btn" onclick="openReviewForm()">Оставить отзыв</button>
                 <!-- Другие отзывы можно добавить здесь -->
             </div>
         </section>
