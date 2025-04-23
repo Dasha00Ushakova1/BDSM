@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Предложения - </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>RemoteBuddy</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="profile.html">Профиль</a></li>
+                <li><a href="offers.html">Предложения</a></li>
+                <li><a href="requests.html">Запросы</a></li>
+                <li><a href="chat.html">Чат</a></li>
+                <li><a href="reviews.html">Отзывы</a></li>
+                <li><a href="about.html">О проекте</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="offers-list">
+            <h2>Предложения услуг</h2>
+            <button class="btn" onclick="createOffer()">Создать новое предложение</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Услуга</th>
+                        <th>Описание</th>
+                        <th>Цена</th>
+                        <th>Автор</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Дизайн логотипа</td>
+                        <td>Создание уникального логотипа для вашего бизнеса.</td>
+                        <td>5000 руб.</td>
+                        <td>Иван Иванов</td>
+                        <td>
+                            <button class="btn" onclick="viewOffer()">Просмотреть</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Разработка сайта</td>
+                        <td>Полная разработка и поддержка веб-сайтов.</td>
+                        <td>30000 руб.</td>
+                        <td>Мария Петрова</td>
+                        <td>
+                            <button class="btn" onclick="viewOffer()">Просмотреть</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Копирайтинг</td>
+                        <td>Написание качественного контента для сайтов и рекламы.</td>
+                        <td>2000 руб.</td>
+                        <td>Светлана Смирнова</td>
+                        <td>
+                            <button class="btn" onclick="viewOffer()">Просмотреть</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025  Все права защищены.</p>
+        <ul>
+            <li><a href="privacy.html">Политика конфиденциальности</a></li>
+            <li><a href="terms.html">Условия использования</a></li>
+        </ul>
+    </footer>
+
+    <script>
+        function createOffer() {
+            // Логика для создания нового предложения
+            alert("Создание нового предложения");
+        }
+
+        function viewOffer() {
+            // Логика для просмотра предложения
+            alert("Просмотр предложения");
+        }
+    </script>
+</body>
+</html>
