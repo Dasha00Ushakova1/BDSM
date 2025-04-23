@@ -133,7 +133,25 @@
         .close:focus {
             color: #61dafb; /* Change close button color on hover */
             text-decoration: none;
-                      cursor: pointer;
+            cursor: pointer;
+        }
+
+        /* Input and textarea styles */
+                input[type="text"],
+        textarea {
+            width: 100%; /* Full width */
+            padding: 10px; /* Padding for comfort */
+            border: 1px solid #888; /* Border color */
+            border-radius: 5px; /* Rounded corners */
+            background-color: #20232a; /* Background color to match theme */
+            color: #f0f0f0; /* Light text color */
+            font-size: 1em; /* Consistent font size */
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+        }
+
+        textarea {
+            resize: none; /* Disable resizing */
+            height: 100px; /* Fixed height for consistency */
         }
 
         @media (max-width: 600px) {
@@ -232,6 +250,7 @@
             document.getElementById('reviewForm').reset(); // Сбрасываем форму
         });
 
+        // Закрытие модального окна при
         // Закрытие модального окна при нажатии вне его области
         window.onclick = function(event) {
             const modal = document.getElementById('reviewModal');
