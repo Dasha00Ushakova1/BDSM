@@ -150,18 +150,15 @@
     </main>
     <footer>
         <p>&copy; RemoteBuddy </p>
-        <ul>
-            <li><a href="privacy.html">Политика конфиденциальности</a></li>
-            <li><a href="terms.html">Условия использования</a></li>
-        </ul>
     </footer>
 
     <script>
-        let requests = [
-            { service: "Услуга 1", description: "Описание услуги 1", status: "Завершен", author: "Пользователь 1" },
-            { service: "Услуга 2", description: "Описание услуги 2", status: "В процессе", author: "Пользователь 2" },
-            { service: "Услуга 3", description: "Описание услуги 3", status: "Отменен", author: "Пользователь 3" }
-        ];
+       let requests = [
+    { service: "Дизайн логотипа", description: "Создание уникального логотипа для компании.", status: "Завершен", author: "Иван Иванов" },
+    { service: "Разработка веб-сайта", description: "Создание многостраничного веб-сайта для бизнеса.", status: "В процессе", author: "Алексей Петров" },
+    { service: "SEO-оптимизация", description: "Оптимизация сайта для поисковых систем.", status: "Отменен", author: "Мария Смирнова" }
+];
+
 
         function toggleRequestForm() {
             const formContainer = document.getElementById('requestFormContainer');
