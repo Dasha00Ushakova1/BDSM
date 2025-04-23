@@ -66,7 +66,7 @@
             display: inline-block;
         }
 
-        .reviews-section, .how-it-works, .contact-form {
+        .how-it-works, .project-ideas, .contact-form {
             padding: 20px;
             text-align: center;
             margin: 20px auto;
@@ -75,19 +75,8 @@
             background-color: #282c34; /* Тёмный фон для секций */
         }
 
-        .reviews {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
-
-        .review {
-            border: 1px solid #61dafb; /* Светло-голубая рамка */
-            border-radius: 5px;
-            padding: 15px;
-            margin: 10px;
-            width: 45%;
-            background-color: #20232a; /* Тёмный фон для отзыва */
+        .project-ideas h3 {
+            color: #61dafb;
         }
 
         footer {
@@ -101,10 +90,6 @@
         }
 
         @media (max-width: 768px) {
-            .review {
-                width: 90%;
-            }
-
             nav ul {
                 flex-direction: column;
             }
@@ -130,7 +115,6 @@
                 <li><a href="about.html">О проекте</a></li>
             </ul>
         </nav>
-   
     </header>
     <main>
         <section class="hero">
@@ -141,39 +125,49 @@
         </section>
         <section class="how-it-works">
             <h3>Как это работает</h3>
-            <p>RemoteBuddy - это платформа для обмена услугами между людьми. Вы можете предложить свои услуги или найти помощь в нашем сообществе.</p>
-            <p>Для начала зарегистрируйтесь на нашем сайте и создайте профиль. Затем вы можете предложить свои услуги или найти помощь в нашем каталоге.</p>
+                        <p>RemoteBuddy - это платформа для обмена услугами между программистами. Просто зарегистрируйтесь, создайте профиль и начните искать или предлагать услуги!</p>
+        </section>
+        <section class="project-ideas">
+            <h3>Идеи для проектов</h3>
+            <button id="generateIdea" class="btn">Сгенерировать идею</button>
+            <p id="ideaDisplay">Нажмите кнопку, чтобы получить идею!</p>
         </section>
         <section class="contact-form">
-            <h3>Свяжитесь с нами</h3>
+            <h3>Связаться с нами</h3>
             <form id="contactForm">
                 <input type="text" id="name" placeholder="Ваше имя" required>
                 <input type="email" id="email" placeholder="Ваш email" required>
-                <textarea id="message" rows="4" placeholder="Ваше сообщение" required></textarea>
+                <textarea id="message" placeholder="Ваше сообщение" required></textarea>
                 <button type="submit" class="btn">Отправить</button>
             </form>
         </section>
     </main>
     <footer>
-        <p>&copy;  RemoteBuddy</p>
+        <p>&copy; RemoteBuddy</p>
     </footer>
 
     <script>
+        const ideas = [
+            "Создайте приложение для отслеживания времени.",
+            "Разработайте веб-сайт для обмена книгами.",
+            "Создайте платформу для онлайн-курсов.",
+            "Разработайте игру на основе популярной настольной игры.",
+            "Создайте сервис для организации совместных поездок."
+        ];
+
+        document.getElementById('generateIdea').addEventListener('click', function() {
+            const randomIndex = Math.floor(Math.random() * ideas.length);
+            document.getElementById('ideaDisplay').innerText = ideas[randomIndex];
+        });
+
+        // Валидация контактной формы
         document.getElementById('contactForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-
-            // Простая валидация
-            if (name && email && message) {
-                alert('Спасибо за ваше сообщение, ' + name + '! Мы свяжемся с вами скоро.');
-                document.getElementById('contactForm').reset();
-            } else {
-                alert('Пожалуйста, заполните все поля.');
-            }
+            alert('Сообщение отправлено! Спасибо за ваш интерес.');
+            this.reset(); // Сброс формы после отправки
         });
     </script>
 </body>
 
 </html>
+
