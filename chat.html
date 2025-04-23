@@ -3,8 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Чат - </title>
+    <title>Чат - RemoteBuddy</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+        }
+        header {
+            background-color: #282c34;
+            color: #61dafb;
+            padding: 15px;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        nav ul li {
+            margin: 0 10px;
+        }
+        nav ul li a {
+            color: #61dafb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        main {
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .chat-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+        }
+        .chat-box {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .sent {
+            background-color: #d1e7dd;
+            text-align: right;
+        }
+        .received {
+            background-color: #f8d7da;
+            text-align: left;
+        }
+        .timestamp {
+            font-size: 0.8em;
+            color: #666;
+            display: block;
+            margin-top: 5px;
+        }
+        .input-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .input-container input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .btn {
+            background-color: #61dafb;
+            color: #282c34;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        footer {
+            background-color: #282c34;
+            color: #61dafb;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -36,13 +135,13 @@
                 <!-- Добавьте больше сообщений здесь -->
             </div>
             <div class="input-container">
-                <input type="text" id="message-input" placeholder="Напишите сообщение..." />
+                               <input type="text" id="message-input" placeholder="Напишите сообщение..." />
                 <button class="btn" onclick="sendMessage()">Отправить</button>
             </div>
         </section>
     </main>
     <footer>
-        <p>&copy; 2025  Все права защищены.</p>
+        <p>&copy; 2025 Все права защищены.</p>
         <ul>
             <li><a href="privacy.html">Политика конфиденциальности</a></li>
             <li><a href="terms.html">Условия использования</a></li>
@@ -63,6 +162,14 @@
                 chatBox.scrollTop = chatBox.scrollHeight; // Прокрутить вниз
             }
         }
+
+        // Обработчик нажатия клавиши Enter для отправки сообщения
+        document.getElementById('message-input').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
     </script>
 </body>
 </html>
+
