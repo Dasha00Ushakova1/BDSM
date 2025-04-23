@@ -3,63 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная страница</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Главная страница - RemoteBuddy</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .hero {
+            background-image: url('hero-background.jpg'); /* Замените на ваше изображение */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .hero h2 {
+            font-size: 2.5em;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+
+        .btn {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #218838;
+        }
+
+        .reviews-section, .how-it-works {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .reviews {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .review {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 10px;
+            width: 300px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>RemoteBuddy</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="profile.html">Профиль</a></li>
-                <li><a href="offers.html">Предложения</a></li>
-                <li><a href="requests.html">Запросы</a></li>
-                <li><a href="chat.html">Чат</a></li>
-                <li><a href="reviews.html">Отзывы</a></li>
-                <li><a href="about.html">О проекте</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <h1>RemoteBuddy</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="profile.html">Профиль</a></li>
+                    <li><a href="offers.html">Предложения</a></li>
+                    <li><a href="requests.html">Запросы</a></li>
+                    <li><a href="chat.html">Чат</a></li>
+                    <li><a href="reviews.html">Отзывы</a></li>
+                    <li><a href="about.html">О проекте</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
     <main>
-        <section>
-            <h2>Добро пожаловать в RemoteBuddy!</h2>
-            <p>Найдите помощь или предложите свои услуги в нашем сообществе.</p>
-            <a href="signup.html" class="btn">Зарегистрироваться</a>
-            <a href="login.html" class="btn">Войти</a>
+        <section class="hero">
+            <div class="container">
+                <h2>Добро пожаловать в RemoteBuddy!</h2>
+                <p>Найдите помощь или предложите свои услуги в нашем сообществе.</p>
+                <a href="signup.html" class="btn">Зарегистрироваться</a>
+                <a href="login.html" class="btn">Войти</a>
+            </div>
         </section>
-        <section>
-            <h3>Отзывы пользователей</h3>
-                        <div class="reviews">
-                <div class="review">
-                    <p>"Отличная платформа для обмена услугами! Я нашел отличного дизайнера для своего проекта!"</p>
-                    <span>- Анна, фрилансер</span>
-                </div>
-                <div class="review">
-                    <p>"RemoteBuddy помог мне найти программиста, который быстро решил мою задачу. Очень рекомендую!"</p>
-                    <span>- Игорь, малый бизнес</span>
-                </div>
-                <div class="review">
-                    <p>"Удобно и просто! Я люблю обмениваться услугами с другими профессионалами."</p>
-                    <span>- Светлана, графический дизайнер</span>
+        <section class="reviews-section">
+            <div class="container">
+                <h3>Отзывы пользователей</h3>
+                <div class="reviews">
+                    <div class="review">
+                        <p>"Отличная платформа для обмена услугами! Я нашел отличного дизайнера для своего проекта!"</p>
+                        <span>- Анна, фрилансер</span>
+                    </div>
+                    <div class="review">
+                                                <p>"RemoteBuddy помог мне найти программиста, который быстро решил мою задачу. Очень рекомендую!"</p>
+                        <span>- Игорь, малый бизнес</span>
+                    </div>
+                    <div class="review">
+                        <p>"Удобно и просто! Я люблю обмениваться услугами с другими профессионалами."</p>
+                        <span>- Светлана, графический дизайнер</span>
+                    </div>
                 </div>
             </div>
         </section>
-        <section>
-            <h3>Как это работает?</h3>
-            <ol>
-                <li>Зарегистрируйтесь на платформе.</li>
-                <li>Создайте свой профиль и предложите свои услуги.</li>
-                <li>Ищите нужные услуги и взаимодействуйте с другими пользователями.</li>
-            </ol>
+        <section class="how-it-works">
+            <div class="container">
+                <h3>Как это работает?</h3>
+                <ol>
+                    <li>Зарегистрируйтесь на платформе.</li>
+                    <li>Создайте свой профиль и предложите свои услуги.</li>
+                    <li>Ищите нужные услуги и взаимодействуйте с другими пользователями.</li>
+                </ol>
+            </div>
         </section>
     </main>
     <footer>
-        <p>&copy; 2025 Все права защищены.</p>
-        <ul>
-            <li><a href="privacy.html">Политика конфиденциальности</a></li>
-            <li><a href="terms.html">Условия использования</a></li>
-        </ul>
+        <div class="container">
+            <p>&copy; 2025 RemoteBuddy. Все права защищены.</p>
+        </div>
     </footer>
 </body>
 </html>
