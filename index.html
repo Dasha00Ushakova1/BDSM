@@ -10,15 +10,15 @@
     <style>
         body {
             font-family: 'Source Sans 3', sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: #1e1e1e; /* Тёмный фон */
+            color: #f0f0f0; /* Светлый текст */
             line-height: 1.6;
             margin: 0;
         }
 
         header {
-            background-color: #007bff;
-            color: white;
+            background-color: #282c34; /* Тёмно-синий фон */
+            color: #61dafb; /* Светло-голубой текст */
             padding: 15px;
             text-align: center;
         }
@@ -36,7 +36,7 @@
         }
 
         nav ul li a {
-            color: white;
+            color: #61dafb; /* Светло-голубой текст */
             text-decoration: none;
             font-weight: bold;
         }
@@ -46,8 +46,8 @@
         }
 
         .hero {
-            background-color: #6c757d;
-            color: white;
+            background-color: #20232a; /* Более тёмный фон для секции */
+            color: #61dafb; /* Светло-голубой текст */
             text-align: center;
             padding: 60px 20px;
         }
@@ -57,8 +57,8 @@
         }
 
         .btn {
-            background-color: #28a745;
-            color: white;
+            background-color: #61dafb; /* Светло-голубая кнопка */
+            color: #282c34; /* Тёмный текст на кнопке */
             padding: 10px 15px;
             text-decoration: none;
             border-radius: 5px;
@@ -72,6 +72,7 @@
             margin: 20px auto;
             border-radius: 8px;
             max-width: 600px;
+            background-color: #282c34; /* Тёмный фон для секций */
         }
 
         .reviews {
@@ -81,16 +82,17 @@
         }
 
         .review {
-            border: 1px solid #ccc;
+            border: 1px solid #61dafb; /* Светло-голубая рамка */
             border-radius: 5px;
             padding: 15px;
             margin: 10px;
             width: 45%;
+            background-color: #20232a; /* Тёмный фон для отзыва */
         }
 
         footer {
-            background-color: #007bff;
-            color: white;
+            background-color: #282c34; /* Тёмный фон */
+            color: #61dafb; /* Светло-голубой текст */
             text-align: center;
             padding: 10px 0;
             position: relative;
@@ -128,6 +130,7 @@
                 <li><a href="about.html">О проекте</a></li>
             </ul>
         </nav>
+   
     </header>
     <main>
         <section class="hero">
@@ -144,7 +147,7 @@
                     <span>- Анна, фрилансер</span>
                 </div>
                 <div class="review">
-                                        <p>"Я нашел отличного помощника на RemoteBuddy!"</p>
+                    <p>"Я нашел отличного помощника на RemoteBuddy!"</p>
                     <span>- Иван, бизнесмен</span>
                 </div>
                 <div class="review">
@@ -169,7 +172,7 @@
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 RemoteBuddy</p>
+        <p>&copy;  RemoteBuddy</p>
     </footer>
 
     <script>
@@ -179,7 +182,7 @@
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
 
-            // Simple validation
+            // Простая валидация
             if (name && email && message) {
                 alert('Спасибо за ваше сообщение, ' + name + '! Мы свяжемся с вами скоро.');
                 document.getElementById('contactForm').reset();
@@ -191,4 +194,3 @@
 </body>
 
 </html>
-
