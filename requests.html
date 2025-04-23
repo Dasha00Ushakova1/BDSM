@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запросы - </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>RemoteBuddy</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="profile.html">Профиль</a></li>
+                <li><a href="offers.html">Предложения</a></li>
+                <li><a href="requests.html">Запросы</a></li>
+                <li><a href="chat.html">Чат</a></li>
+                <li><a href="reviews.html">Отзывы</a></li>
+                <li><a href="about.html">О проекте</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="requests-list">
+            <h2>Мои запросы</h2>
+            <button class="btn" onclick="createRequest()">Создать новый запрос</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Услуга</th>
+                        <th>Описание</th>
+                        <th>Статус</th>
+                        <th>Автор</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Поиск графического дизайнера</td>
+                        <td>Нужен дизайнер для создания маркетинговых материалов.</td>
+                        <td>В процессе</td>
+                        <td>Иван Иванов</td>
+                        <td>
+                            <button class="btn" onclick="viewRequest()">Просмотреть</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Копирайтинг</td>
+                        <td>Нужен текст для нового веб-сайта.</td>
+                        <td>Завершено</td>
+                        <td>Мария Петрова</td>
+                        <td>
+                            <button class="btn" onclick="viewRequest()">Просмотреть</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Разработка мобильного приложения</td>
+                        <td>Ищу разработчика для создания приложения на iOS и Android.</td>
+                        <td>Ожидание откликов</td>
+                        <td>Светлана Смирнова</td>
+                        <td>
+                            <button class="btn" onclick="viewRequest()">Просмотреть</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025  Все права защищены.</p>
+        <ul>
+            <li><a href="privacy.html">Политика конфиденциальности</a></li>
+            <li><a href="terms.html">Условия использования</a></li>
+        </ul>
+    </footer>
+
+    <script>
+        function createRequest() {
+            // Логика для создания нового запроса
+            alert("Создание нового запроса");
+        }
+
+        function viewRequest() {
+            // Логика для просмотра запроса
+            alert("Просмотр запроса");
+        }
+    </script>
+</body>
+</html>
