@@ -96,6 +96,45 @@
             width: 100%;
         }
 
+        /* Styles for the modal */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 60px; /* Location of the box */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
         @media (max-width: 600px) {
             nav ul {
                 flex-direction: column;
@@ -105,7 +144,7 @@
 </head>
 <body>
     <header>
-        <h1>RemoteBuddy</h1>
+                <h1>RemoteBuddy</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Главная</a></li>
@@ -128,27 +167,75 @@
                     <p>Отличная платформа для поиска фрилансеров! Очень рекомендую.</p>
                     <span class="timestamp">10 апреля 2025</span>
                 </div>
-                              </div>
                 <div class="review">
                     <h3>Светлана Смирнова</h3>
                     <p>Пользуюсь услугами платформы уже несколько месяцев и очень довольна.</p>
                     <span class="timestamp">20 апреля 2025</span>
                 </div>
-                <!-- Добавьте больше отзывов здесь -->
+                <!-- Другие отзывы можно добавить здесь -->
             </div>
         </section>
     </main>
+    
+    <!-- Модальное окно для оставления отзыва -->
+    <div id="reviewModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeReviewForm()">&times;</span>
+            <h2>Оставить отзыв</h2>
+            <form id="reviewForm">
+                <label for="username">Ваше имя:</label>
+                <input type="text" id="username" required>
+                
+                <label for="reviewText">Ваш отзыв:</label>
+                <textarea id="reviewText" rows="4" required></textarea>
+                
+                <button type="submit" class="btn">Отправить</button>
+            </form>
+        </div>
+    </div>
+
     <footer>
-        <p>&copy;RemoteBuddy</p>
+        <p>&copy; RemoteBuddy</p>
         <ul>
-         
+            <!-- Здесь можно добавить ссылки на социальные сети или другую информацию -->
         </ul>
     </footer>
 
     <script>
         function openReviewForm() {
-            alert("Открыть форму для оставления отзыва");
-            // Здесь можно добавить логику для открытия модального окна с формой для отзыва
+            document.getElementById('reviewModal').style.display = 'block';
+        }
+
+        function closeReviewForm() {
+            document.getElementById('reviewModal').style.display = 'none';
+        }
+
+        // Обработка формы отзыва
+        document.getElementById('reviewForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Предотвращаем стандартное поведение формы
+
+            const username = document.getElementById('username').value;
+            const reviewText = document.getElementById('reviewText').value;
+
+            const newReview = document.createElement('div');
+            newReview.classList.add('review');
+            newReview.innerHTML = `
+                <h3>${username}</h3>
+                <p>${reviewText}</p>
+                <span class="timestamp">${new Date().toLocaleDateString()}</span>
+            `;
+
+            document.getElementById('reviews-list').appendChild(newReview);
+            closeReviewForm(); // Закрываем модальное окно
+            document.getElementById('reviewForm').reset(); // Сбрасываем форму
+        });
+
+        // Закрытие модального окна при нажатии вне его области
+        window.onclick = function(event) {
+            const modal = document.getElementById('reviewModal');
+            if (event.target === modal) {
+                closeReviewForm();
+            }
         }
     </script>
 </body>
