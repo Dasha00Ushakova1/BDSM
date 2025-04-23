@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чат - </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>RemoteBuddy</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="profile.html">Профиль</a></li>
+                <li><a href="offers.html">Предложения</a></li>
+                <li><a href="requests.html">Запросы</a></li>
+                <li><a href="chat.html">Чат</a></li>
+                <li><a href="reviews.html">Отзывы</a></li>
+                <li><a href="about.html">О проекте</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="chat-container">
+            <h2>Чат с [Имя пользователя]</h2>
+            <div class="chat-box" id="chat-box">
+                <div class="message sent">
+                    <p>Привет! Как дела?</p>
+                    <span class="timestamp">10:15</span>
+                </div>
+                <div class="message received">
+                    <p>Привет! Все хорошо, спасибо. А у тебя?</p>
+                    <span class="timestamp">10:16</span>
+                </div>
+                <!-- Добавьте больше сообщений здесь -->
+            </div>
+            <div class="input-container">
+                <input type="text" id="message-input" placeholder="Напишите сообщение..." />
+                <button class="btn" onclick="sendMessage()">Отправить</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025  Все права защищены.</p>
+        <ul>
+            <li><a href="privacy.html">Политика конфиденциальности</a></li>
+            <li><a href="terms.html">Условия использования</a></li>
+        </ul>
+    </footer>
+
+    <script>
+        function sendMessage() {
+            const input = document.getElementById('message-input');
+            const messageText = input.value.trim();
+            if (messageText) {
+                const chatBox = document.getElementById('chat-box');
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'message sent';
+                messageDiv.innerHTML = `<p>${messageText}</p><span class="timestamp">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>`;
+                chatBox.appendChild(messageDiv);
+                input.value = ''; // Очистить поле ввода
+                chatBox.scrollTop = chatBox.scrollHeight; // Прокрутить вниз
+            }
+        }
+    </script>
+</body>
+</html>
