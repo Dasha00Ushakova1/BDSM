@@ -3,10 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <link rel="icon" href="https://syhanoff.ru/wp-content/themes/portfolio/assets/favicon.ico" sizes="32x32" type="image/x-icon">
+    <link rel="icon" href="https://syhanoff.ru/wp-content/themes/portfolio/assets/favicon.ico" sizes="32x32" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400&display=swap" rel="stylesheet">
-    <title>О проекте - </title>
-    <link rel="stylesheet" href="styles.css">
+    <title>О проекте - RemoteBuddy</title>
+    <style>
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: #1e1e1e; /* Dark background */
+            color: #f0f0f0; /* Light text */
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #282c34; /* Dark blue background */
+            color: #61dafb; /* Light blue text */
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #61dafb; /* Light blue text */
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #21a1f1; /* Lighter blue on hover */
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .about-container {
+            background-color: #282c34; /* Dark background for the about section */
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+
+        h2, h3 {
+            color: #61dafb; /* Light blue text for headings */
+        }
+
+        ol {
+            margin-left: 20px;
+        }
+
+        footer {
+            background-color: #282c34; /* Dark background */
+            color: #61dafb; /* Light blue text */
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        footer ul li a {
+            color: #61dafb; /* Light blue text */
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer ul li a:hover {
+            color: #21a1f1; /* Lighter blue on hover */
+        }
+
+        @media (max-width: 600px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -25,17 +126,16 @@
     </header>
     <main>
         <section class="about-container">
-            <h2>О проекте </h2>
+            <h2>О проекте</h2>
             <p>
-                 — это платформа, созданная для соединения фрилансеров и клиентов, 
+                RemoteBuddy — это платформа, созданная для соединения фрилансеров и клиентов, 
                 ищущих квалифицированных специалистов для выполнения различных задач. Наша цель — 
                 упростить процесс поиска и найма, предоставляя удобный интерфейс и широкий выбор 
                 профессионалов в различных областях.
             </p>
             <h3>Наша миссия</h3>
             <p>
-                Мы стремимся создать сообщество, где каждый может найти подходящего специалиста, 
-                а фрилансеры могут легко находить интересные проекты и зарабатывать на своих 
+                Мы стремимся создать сообщество, где каждый может найти подходящего специалиста, а фрилансеры могут легко находить интересные проекты и зарабатывать на своих 
                 навыках. Мы верим в прозрачность, честность и качество услуг, предоставляемых на 
                 нашей платформе.
             </p>
@@ -54,7 +154,7 @@
         </section>
     </main>
     <footer>
-        <p>&copy; 2025  Все права защищены.</p>
+        <p>&copy; 2025 RemoteBuddy. Все права защищены.</p>
         <ul>
             <li><a href="privacy.html">Политика конфиденциальности</a></li>
             <li><a href="terms.html">Условия использования</a></li>
@@ -62,3 +162,4 @@
     </footer>
 </body>
 </html>
+
