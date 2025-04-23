@@ -122,29 +122,21 @@
     </header>
     <main>
         <section class="chat-container">
-            <h2>Чат с [Имя пользователя]</h2>
+            <h2>Глобальный чат</h2>
             <div class="chat-box" id="chat-box">
-                <div class="message sent">
-                    <p>Привет! Как дела?</p>
-                    <span class="timestamp">10:15</span>
-                </div>
-                <div class="message received">
-                    <p>Привет! Все хорошо, спасибо. А у тебя?</p>
-                    <span class="timestamp">10:16</span>
-                </div>
-                <!-- Добавьте больше сообщений здесь -->
+                <!-- Сообщения будут добавляться сюда -->
             </div>
             <div class="input-container">
-                               <input type="text" id="message-input" placeholder="Напишите сообщение..." />
+                <input type="text" id="message-input" placeholder="Напишите сообщение..." />
                 <button class="btn" onclick="sendMessage()">Отправить</button>
             </div>
         </section>
     </main>
     <footer>
-        <p>&copy; 2025 Все права защищены.</p>
+                <p>&copy; RemoteBuddy
+.</p>
         <ul>
-            <li><a href="privacy.html">Политика конфиденциальности</a></li>
-            <li><a href="terms.html">Условия использования</a></li>
+    
         </ul>
     </footer>
 
@@ -169,6 +161,25 @@
                 sendMessage();
             }
         });
+
+        // Пример функции для получения сообщений от других пользователей (заглушка)
+        function receiveMessage(userName, messageText) {
+            const chatBox = document.getElementById('chat-box');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message received';
+            messageDiv.innerHTML = `<p><strong>${userName}:</strong> ${messageText}</p><span class="timestamp">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>`;
+            chatBox.appendChild(messageDiv);
+            chatBox.scrollTop = chatBox.scrollHeight; // Прокрутить вниз
+        }
+
+        // Пример вызова receiveMessage (можно заменить на реальную логику получения сообщений)
+        setTimeout(() => {
+            receiveMessage('Пользователь1', 'Привет всем!');
+        }, 3000);
+
+        setTimeout(() => {
+            receiveMessage('Пользователь2', 'Как дела?');
+        }, 6000);
     </script>
 </body>
 </html>
