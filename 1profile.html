@@ -141,8 +141,8 @@
         <h1>RemoteBuddy</h1>
         <nav>
             <ul>
-                <li><a href="index.html">Главная</a></<li>
-                <li><a href="profile.html">Профиль</a></li>
+                <li><a href="index.html">Главная</a></li>
+                                <li><a href="profile.html">Профиль</a></li>
                 <li><a href="offers.html">Предложения</a></li>
                 <li><a href="requests.html">Запросы</a></li>
                 <li><a href="chat.html">Чат</a></li>
@@ -156,10 +156,12 @@
         <section class="profile-info">
             <h2>Информация о пользователе</h2>
             <img id="profileImage" src="i.webp" alt="Фото профиля" class="profile-picture">
-            <p>Email: <span id="userEmail">example@example.com</span>
+            <p>Email: 
+                <span id="userEmail">example@example.com</span>
                 <input type="text" id="userEmailInput" class="edit-input" value="example@example.com" onblur="saveEdit('userEmail', 'userEmailInput')">
             </p>
-            <p>Имя: <span id="userName">Имя пользователя</span>
+            <p>Имя: 
+                <span id="userName">Имя пользователя</span>
                 <input type="text" id="userNameInput" class="edit-input" value="Имя пользователя" onblur="saveEdit('userName', 'userNameInput')">
             </p>
             <p>
@@ -229,7 +231,7 @@
                         <th>Описание</th>
                         <th>Статус</th>
                         <th>Действия</th>
-                                </thead>
+                                    </thead>
                 <tbody>
                     <tr>
                         <td>
@@ -237,12 +239,12 @@
                             <input type="text" class="edit-input" value="Запрос на дизайн" onblur="saveRequestEdit(this)">
                         </td>
                         <td>
-                            <span class="request-description">Нужен свежий взгляд на логотип.</span>
-                            <input type="text" class="edit-input" value="Нужен свежий взгляд на логотип." onblur="saveRequestEdit(this)">
+                            <span class="request-description">Нужен уникальный дизайн для нового продукта.</span>
+                            <input type="text" class="edit-input" value="Нужен уникальный дизайн для нового продукта." onblur="saveRequestEdit(this)">
                         </td>
                         <td>
-                            <span class="request-status">В ожидании</span>
-                            <input type="text" class="edit-input" value="В ожидании" onblur="saveRequestEdit(this)">
+                            <span class="request-status">Ожидание</span>
+                            <input type="text" class="edit-input" value="Ожидание" onblur="saveRequestEdit(this)">
                         </td>
                         <td>
                             <button class="btn" onclick="toggleRequestEdit(this)">Редактировать</button>
@@ -254,8 +256,8 @@
                             <input type="text" class="edit-input" value="Запрос на разработку сайта" onblur="saveRequestEdit(this)">
                         </td>
                         <td>
-                            <span class="request-description">Нужен функциональный сайт для бизнеса.</span>
-                            <input type="text" class="edit-input" value="Нужен функциональный сайт для бизнеса." onblur="saveRequestEdit(this)">
+                            <span class="request-description">Требуется создание сайта-визитки.</span>
+                            <input type="text" class="edit-input" value="Требуется создание сайта-визитки." onblur="saveRequestEdit(this)">
                         </td>
                         <td>
                             <span class="request-status">В процессе</span>
@@ -269,14 +271,15 @@
             </table>
         </section>
     </main>
+
     <footer>
         <p>&copy; 2025 RemoteBuddy. Все права защищены.</p>
     </footer>
 
     <script>
-        function toggleEdit(field) {
-            const span = document.getElementById(field);
-            const input = document.getElementById(field + 'Input');
+        function toggleEdit(fieldId) {
+            const span = document.getElementById(fieldId);
+            const input = document.getElementById(fieldId + 'Input');
             const isEditing = input.style.display === 'block';
 
             if (isEditing) {
@@ -293,19 +296,17 @@
             const span = document.getElementById(spanId);
             const input = document.getElementById(inputId);
             span.textContent = input.value;
-            span.style.display = 'inline';
             input.style.display = 'none';
+            span.style.display = 'inline';
         }
 
         function toggleOfferEdit(button) {
             const row = button.closest('tr');
             const inputs = row.querySelectorAll('.edit-input');
-
             inputs.forEach(input => {
-                const isEditing = input.style.display === 'block';
-                input.style.display = isEditing ? 'none' : 'block';
+                input.style.display = input.style.display === 'block' ? 'none' : 'block';
                 const span = input.previousElementSibling;
-                span.style.display = isEditing ? 'inline' : 'none';
+                span.style.display = input.style.display === 'block' ? 'none' : 'inline';
             });
         }
 
@@ -313,19 +314,17 @@
             const row = input.closest('tr');
             const span = row.querySelector('.offer-name, .offer-description, .offer-status');
             span.textContent = input.value;
-            span.style.display = 'inline';
             input.style.display = 'none';
+            span.style.display = 'inline';
         }
 
         function toggleRequestEdit(button) {
             const row = button.closest('tr');
             const inputs = row.querySelectorAll('.edit-input');
-
             inputs.forEach(input => {
-                const isEditing = input.style.display === 'block';
-                input.style.display = isEditing ? 'none' : 'block';
+                input.style.display = input.style.display === 'block' ? 'none' : 'block';
                 const span = input.previousElementSibling;
-                span.style.display = isEditing ? 'inline' : 'none';
+                span.style.display = input.style.display === 'block' ? 'none' : 'inline';
             });
         }
 
@@ -333,15 +332,16 @@
             const row = input.closest('tr');
             const span = row.querySelector('.request-name, .request-description, .request-status');
             span.textContent = input.value;
-            span.style.display = 'inline';
             input.style.display = 'none';
+            span.style.display = 'inline';
         }
 
         function previewImage(event) {
             const file = event.target.files[0];
             const reader = new FileReader();
             reader.onload = function(e) {
-                document.getElementById('profileImage').src = e.target.result;
+                const img = document.getElementById('profileImage');
+                img.src = e.target.result;
             }
             reader.readAsDataURL(file);
         }
