@@ -17,22 +17,16 @@
         }
 
         header {
-            background-color: #282c34; /* Темно-синий фон */
-            color: #61dafb; /* Светло-синий текст */
+            background-color: #282c34; /* Темный синий фон */
+            color: #61dafb; /* Светлый синий текст */
             padding: 15px;
             text-align: center;
         }
 
-        .logo {
-            width: 100px; /* Размер логотипа */
-            height: 100px; /* Размер логотипа */
-            border-radius: 50%; /* Круглая форма */
-            margin: 0 auto 10px; /* Центрирование логотипа */
-        }
-
-        .logo img {
-            width: 100%; /* Заполнение контейнера */
-            height: auto; /* Автоматическая высота */
+        header img {
+            max-width: 100px; /* Размер логотипа */
+            height: auto;
+            border-radius: 50%; /* Круглая форма логотипа */
         }
 
         nav ul {
@@ -40,8 +34,8 @@
             padding: 0;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap; /* Обеспечивает адаптивность для мобильных устройств */
             margin-top: 10px;
-            flex-wrap: wrap; /* Обеспечить перенос элементов на мобильных */
         }
 
         nav ul li {
@@ -49,7 +43,7 @@
         }
 
         nav ul li a {
-            color: #61dafb; /* Светло-синий текст */
+            color: #61dafb; /* Светлый синий текст */
             text-decoration: none;
             font-weight: bold;
         }
@@ -63,28 +57,34 @@
             text-align: center;
         }
 
-        .requests-list {
-            background-color: #282c34; /* Темный фон для секций */
+        .form-container {
+            background-color: #282c34; /* Темный фон для формы */
             padding: 20px;
             margin: 20px auto;
             border-radius: 8px;
             max-width: 800px;
             text-align: left;
+            display: none; /* Скрыто по умолчанию */
         }
 
-        .filter-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 20px;
+        .form-container label {
+            display: block;
+            margin: 10px 0 5px;
         }
 
-        .filter-container label {
-            margin-bottom: 5px;
+        .form-container input,
+        .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #61dafb;
+            border-radius: 5px;
+            background-color: #20232a; /* Темный фон для полей ввода */
+            color: #f0f0f0; /* Светлый текст */
         }
 
         .btn {
-            background-color: #61dafb; /* Светло-синий кнопка */
+            background-color: #61dafb; /* Светлая кнопка */
             color: #282c34; /* Темный текст на кнопке */
             padding: 10px 15px;
             text-decoration: none;
@@ -110,39 +110,50 @@
             background-color: #20232a;
         }
 
+        .edit-btn {
+            background-color: #00d2fc; /* Оранжевая кнопка для редактирования */
+        }
+
         footer {
             background-color: #282c34; /* Темный фон */
-            color: #61dafb; /* Светло-синий текст */
+            color: #61dafb; /* Светлый синий текст */
             text-align: center;
             padding: 10px 0;
             position: relative;
             bottom: 0;
             width: 100%;
         }
-
-        .form-container {
-            display: none; /* Скрыть форму по умолчанию */
-            margin-top: 20px;
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 450px) {
+        nav ul {
+            flex-direction: column; /* Вертикальное отображение для мобильных устройств */
         }
 
-        @media (max-width: 600px) {
-            nav ul {
-                flex-direction: column;
-                align-items: center; /* Центрирование элементов */
-            }
-            .filter-container {
-                width: 100%; /* Полная ширина для мобильных устройств */
-                padding: 0 10px; /* Отступы для мобильных */
-            }
-            select {
-                width: 100%; /* Полная ширина для выпадающего списка */
-                padding: 10px; /* Увеличение отступов для удобства */
-                                border-radius: 5px; /* Закругление углов */
-                border: 1px solid #61dafb; /* Светло-синяя рамка */
-                background-color: #20232a; /* Темный фон для селекта */
-                color: #f0f0f0; /* Светлый текст */
-            }
+        table {
+            font-size: 12px; /* Уменьшение шрифта таблицы на мобильных устройствах */
+            display: block; /* Делает таблицу блочным элементом */
+            overflow-x: auto; /* Добавляет горизонтальную прокрутку */
+            white-space: nowrap; /* Предотвращает перенос строк в ячейках */
         }
+
+        th, td {
+            padding: 8px; /* Уменьшение отступов в ячейках */
+        }
+
+        header img {
+            max-width: 60px; /* Уменьшение размера логотипа на мобильных устройствах */
+        }
+
+        .btn {
+            padding: 8px 12px; /* Уменьшение отступов для кнопок на мобильных устройствах */
+        }
+    }
     </style>
 </head>
 <body>
