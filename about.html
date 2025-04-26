@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="2e4b17e6-a650-4c03-99dc-bf0ad6f6be9b.png" sizes="32x32" type="image/x-icon">
+    <link rel="icon" href="2e4b17e6-a650-4c03-99dc-bf0ad6f6be9b.png" sizes="32x32" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400&display=swap" rel="stylesheet">
     <title>О проекте - RemoteBuddy</title>
     <style>
@@ -24,11 +24,11 @@
         }
 
         .logo {
-            width: 100px; /* Размер логотипа */
-            height: 100px; /* Размер логотипа */
-            border-radius: 50%; /* Круглая форма логотипа */
-            object-fit: cover; /* Обеспечивает заполнение области */
-            margin-bottom: 10px; /* Отступ снизу */
+            width: 100px; /* Size of the logo */
+            height: 100px; /* Size of the logo */
+            border-radius: 50%; /* Circular logo */
+            object-fit: cover; /* Ensures the logo fills the area */
+            margin-bottom: 10px; /* Space below the logo */
         }
 
         nav ul {
@@ -105,27 +105,6 @@
         footer ul li a:hover {
             color: #21a1f1; /* Lighter blue on hover */
         }
-         nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
-
-        nav ul li {
-            margin: 0 10px;
-        }
-
-        nav ul li a {
-            color: #61dafb; /* Light blue text */
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        nav ul li a:hover {
-            text-decoration: underline;
-        }
 
         .back-to-top {
             position: fixed;
@@ -153,7 +132,7 @@
 </head>
 <body>
     <header>
-        <img src="2e4b17e6-a650-4c03-99dc-bf0ad6f6be9b.png" alt="RemoteBuddy Logo" class="logo"> <!-- Replace with your logo URL -->
+        <img src="2e4b17e6-a650-4c03-99dc-bf0ad6f6be9b.png" alt="RemoteBuddy Logo" class="logo">
         <h1>RemoteBuddy</h1>
         <nav>
             <ul>
@@ -161,7 +140,7 @@
                 <li><a href="profile.html">Профиль</a></li>
                 <li><a href="offers.html">Предложения</a></li>
                 <li><a href="requests.html">Запросы</a></li>
-                <li><a href="chat.html">Чат</a></li>
+                                <li><a href="chat.html">Чат</a></li>
                 <li><a href="reviews.html">Отзывы</a></li>
                 <li><a href="about.html">О проекте</a></li>
             </ul>
@@ -193,7 +172,7 @@
             <h3>Контакты</h3>
             <p>
                 Если у вас есть вопросы или предложения, свяжитесь с нами по адресу: 
-                <a href="mailto:">darausakova@gmail.com</a>
+                <a href="mailto:darausakova@gmail.com">darausakova@gmail.com</a>
             </p>
         </section>
     </main>
@@ -208,11 +187,13 @@
         // Smooth scrolling for navigation links
         document.querySelectorAll('nav ul li a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
-                e.preventDefault();
                 const targetId = this.getAttribute('href');
-                document.querySelector(targetId).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                if (targetId.startsWith('#')) {
+                    e.preventDefault();
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
 
@@ -236,3 +217,4 @@
     </script>
 </body>
 </html>
+
