@@ -24,8 +24,8 @@
         }
 
         .logo {
-            width: 80px; /* Ширина логотипа */
-            height: 80px; /* Высота логотипа */
+            width: 100px; /* Размер логотипа */
+            height: 100px; /* Размер логотипа */
             border-radius: 50%; /* Круглая форма */
             overflow: hidden; /* Обрезка лишнего */
             margin: 0 auto 10px; /* Центрирование логотипа */
@@ -114,13 +114,6 @@
             display: none; /* Скрыть форму по умолчанию */
             margin-top: 20px;
         }
-          .logo {
-            width: 100px; /* Adjust size as needed */
-            height: 100px; /* Adjust size as needed */
-            border-radius: 50%; /* Makes the image circular */
-            object-fit: cover; /* Ensures the image covers the area */
-            margin-bottom: 10px; /* Space below the logo */
-        }
 
         @media (max-width: 600px) {
             nav ul {
@@ -133,7 +126,7 @@
 <body>
     <header>
         <div class="logo">
-            <img src="2e4b17e6-a650-4c03-99dc-bf0ad6f6be9b.png" alt="Логотип RemoteBuddy">
+                        <img src="2e4b17e6-a650-4c03-99dc-bf0ad6f6be9b.png" alt="Логотип RemoteBuddy">
         </div>
         <h1>RemoteBuddy</h1>
         <nav>
@@ -143,13 +136,20 @@
                 <li><a href="offers.html">Предложения</a></li>
                 <li><a href="requests.html">Запросы</a></li>
                 <li><a href="chat.html">Чат</a></li>
-                                <li><a href="reviews.html">Отзывы</a></li>
+                <li><a href="reviews.html">Отзывы</a></li>
                 <li><a href="about.html">О проекте</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <section class="requests-list">
+            <label for="statusFilter">Фильтр по статусу:</label>
+            <select id="statusFilter" onchange="filterRequests()">
+                <option value="Все">Все</option>
+                <option value="Завершен">Завершен</option>
+                <option value="В процессе">В процессе</option>
+                <option value="Отменен">Отменен</option>
+            </select>
             <table>
                 <thead>
                     <tr>
@@ -164,6 +164,7 @@
                     <!-- Запросы будут добавляться сюда -->
                 </tbody>
             </table>
+            <div id="requestDetails" style="margin-top: 20px; display: none;"></div>
         </section>
     </main>
     <footer>
@@ -171,68 +172,54 @@
     </footer>
 
     <script>
-       let requests = [
+        let requests = [
             { service: "Дизайн логотипа", description: "Создание уникального логотипа для компании.", status: "Завершен", author: "Иван Иванов" },
             { service: "Разработка веб-сайта", description: "Создание многостраничного веб-сайта для бизнеса.", status: "В процессе", author: "Алексей Петров" },
             { service: "SEO-оптимизация", description: "Оптимизация сайта для поисковых систем.", status: "Отменен", author: "Мария Смирнова" }
         ];
 
-        function toggleRequestForm() {
-            const formContainer = document.getElementById('requestFormContainer');
-            formContainer.style.display = formContainer.style.display === 'none' || formContainer.style.display === '' ? 'block' : 'none';
+        function filterRequests() {
+            const filterValue = document.getElementById('statusFilter').value;
+            renderRequests(filterValue);
         }
 
-        function submitRequest() {
-            const service = document.getElementById('requestService').value;
-            const description = document.getElementById('requestDescription').value;
-            const author = "Ваше Имя"; // Здесь можно добавить логику для получения имени автора
-
-            if (service && description) {
-                const newRequest = {
-                    service,
-                    description,
-                    status: "В процессе",
-                    author
-                };
-                requests.push(newRequest);
-                renderRequests();
-                clearForm();
-                toggleRequestForm();
-            } else {
-                alert("Пожалуйста, заполните все поля.");
-            }
-        }
-
-        function renderRequests() {
+        function renderRequests(filter = "Все") {
             const tableBody = document.getElementById('requestsTableBody');
             tableBody.innerHTML = ''; // Очистка предыдущих записей
             requests.forEach((request, index) => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${request.service}</td>
-                    <td>${request.description}</td>
-                    <td>${request.status}</td>
-                    <td>${request.author}</td>
-                    <td>
-                        <button class="btn" onclick="viewRequest(${index})">Просмотреть</button>
-                    </td>
-                `;
-                tableBody.appendChild(row);
+                if (filter === "Все" || request.status === filter) {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${request.service}</td>
+                        <td>${request.description}</td>
+                        <td>${request.status}</td>
+                        <td>${request.author}</td>
+                        <td>
+                            <button class="btn" onclick="showRequestDetails(${index})">Просмотреть</button>
+                        </td>
+                    `;
+                    tableBody.appendChild(row);
+                }
             });
         }
 
-        function viewRequest(index) {
+        function showRequestDetails(index) {
             const request = requests[index];
-            alert(`Услуга: ${request.service}\nОписание: ${request.description}\nСтатус: ${request.status}\nАвтор: ${request.author}`);
-        }
-
-        function clearForm() {
-            document.getElementById('requestService').value = '';
-            document.getElementById('requestDescription').value = '';
+            const detailsDiv = document.getElementById('requestDetails');
+            detailsDiv.innerHTML = `
+                <h3>Детали Запроса</h3>
+                <p><strong>Услуга:</strong> ${request.service}</p>
+                <p><strong>Описание:</strong> ${request.description}</p>
+                <p><strong>Статус:</strong> ${request.status}</p>
+                <p><strong>Автор:</strong> ${request.author}</p>
+            `;
+            detailsDiv.style.display = 'block'; // Показываем детали запроса
         }
 
         // Инициализация отображения запросов при загрузке страницы
-        document.addEventListener('DOMContentLoaded', renderRequests);
+        document.addEventListener('DOMContentLoaded', () => {
+            renderRequests();
+        });
     </script>
 </body>
 </html>
