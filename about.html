@@ -23,6 +23,11 @@
             text-align: center;
         }
 
+        .logo {
+            max-width: 150px; /* Adjust logo size */
+            margin-bottom: 10px;
+        }
+
         nav ul {
             list-style: none;
             padding: 0;
@@ -98,6 +103,19 @@
             color: #21a1f1; /* Lighter blue on hover */
         }
 
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #61dafb;
+            color: #282c34;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            display: none; /* Hidden by default */
+        }
+
         @media (max-width: 600px) {
             nav ul {
                 flex-direction: column;
@@ -111,6 +129,7 @@
 </head>
 <body>
     <header>
+        <img src="https://example.com/logo.png" alt="RemoteBuddy Logo" class="logo"> <!-- Replace with your logo URL -->
         <h1>RemoteBuddy</h1>
         <nav>
             <ul>
@@ -124,6 +143,7 @@
             </ul>
         </nav>
     </header>
+   
     <main>
         <section class="about-container">
             <h2>О проекте</h2>
@@ -149,15 +169,46 @@
             <h3>Контакты</h3>
             <p>
                 Если у вас есть вопросы или предложения, свяжитесь с нами по адресу: 
-                <a href="mailto:support@remotebuddy.com">darausakova@gmail.com</a>
+                <a href="mailto:">darausakova@gmail.com</a>
             </p>
         </section>
     </main>
+    
+    <button class="back-to-top" onclick="scrollToTop()">Наверх</button>
+
     <footer>
-        <p>&copy;RemoteBuddy. </p>
-        <ul>
-        </ul>
+        <p>&copy; RemoteBuddy</p>
     </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav ul li a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Show back-to-top button when scrolling down
+        window.onscroll = function() {
+            const button = document.querySelector('.back-to-top');
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                button.style.display = 'block';
+            } else {
+                button.style.display = 'none';
+            }
+        };
+
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
 </body>
 </html>
-
