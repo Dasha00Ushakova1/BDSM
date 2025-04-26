@@ -73,24 +73,26 @@
         }
 
         .message {
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 5px;
-        }
+        margin: 20px 0; /* Увеличение интервала между сообщениями */
+        padding: 10px;
+        border-radius: 5px;
+    }
+       
+    .sent {
+        background-color: #4db8e0; /* Светло-голубой фон для отправленных сообщений */
+        text-align: right;
+        color: #282c34; /* Изменение цвета текста в отправленных сообщениях */
+    }
 
-        .sent {
-            background-color: #4db8e0; /* Светло-голубой фон для отправленных сообщений */
-            text-align: right;
-        }
-
-        .received {
-            background-color: #f8d7da; /* Светло-красный фон для полученных сообщений */
-            text-align: left;
-        }
+      .received {
+        background-color: #2162cc; /* Светло-красный фон для полученных сообщений */
+        text-align: left;
+        color: #000000; /* Изменение цвета текста в полученных сообщениях */
+    }
 
         .timestamp {
             font-size: 0.8em;
-            color: #bbb; /* Более светлый цвет для времени */
+            color: #1d2026; /* Более светлый цвет для времени */
             display: block;
             margin-top: 5px;
         }
