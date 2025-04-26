@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <link rel="icon" href="https://syhanoff.ru/wp-content/themes/portfolio/assets/favicon.ico" sizes="32x32" type="image/x-icon">
+    <link rel="icon" href="2e4b17e6-a650-4c03-99dc-bf0ad6f6be9b.png" sizes="32x32" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400&display=swap" rel="stylesheet">
     <title>Запросы - RemoteBuddy</title>
     <link rel="stylesheet" href="styles.css">
@@ -23,12 +23,26 @@
             text-align: center;
         }
 
+        .logo {
+            width: 80px; /* Ширина логотипа */
+            height: 80px; /* Высота логотипа */
+            border-radius: 50%; /* Круглая форма */
+            overflow: hidden; /* Обрезка лишнего */
+            margin: 0 auto 10px; /* Центрирование логотипа */
+        }
+
+        .logo img {
+            width: 100%; /* Заполнение контейнера */
+            height: auto; /* Автоматическая высота */
+        }
+
         nav ul {
             list-style: none;
             padding: 0;
             display: flex;
             justify-content: center;
             margin-top: 10px;
+            flex-wrap: wrap; /* Обеспечить перенос элементов на мобильных */
         }
 
         nav ul li {
@@ -104,12 +118,16 @@
         @media (max-width: 600px) {
             nav ul {
                 flex-direction: column;
+                align-items: center; /* Центрирование элементов */
             }
         }
     </style>
 </head>
 <body>
     <header>
+        <div class="logo">
+            <img src="2e4b17e6-a650-4c03-99dc-bf0ad6f6be9b.png" alt="Логотип RemoteBuddy">
+        </div>
         <h1>RemoteBuddy</h1>
         <nav>
             <ul>
@@ -118,7 +136,7 @@
                 <li><a href="offers.html">Предложения</a></li>
                 <li><a href="requests.html">Запросы</a></li>
                 <li><a href="chat.html">Чат</a></li>
-                <li><a href="reviews.html">Отзывы</a></li>
+                                <li><a href="reviews.html">Отзывы</a></li>
                 <li><a href="about.html">О проекте</a></li>
             </ul>
         </nav>
@@ -147,11 +165,10 @@
 
     <script>
        let requests = [
-    { service: "Дизайн логотипа", description: "Создание уникального логотипа для компании.", status: "Завершен", author: "Иван Иванов" },
-    { service: "Разработка веб-сайта", description: "Создание многостраничного веб-сайта для бизнеса.", status: "В процессе", author: "Алексей Петров" },
-    { service: "SEO-оптимизация", description: "Оптимизация сайта для поисковых систем.", status: "Отменен", author: "Мария Смирнова" }
-];
-
+            { service: "Дизайн логотипа", description: "Создание уникального логотипа для компании.", status: "Завершен", author: "Иван Иванов" },
+            { service: "Разработка веб-сайта", description: "Создание многостраничного веб-сайта для бизнеса.", status: "В процессе", author: "Алексей Петров" },
+            { service: "SEO-оптимизация", description: "Оптимизация сайта для поисковых систем.", status: "Отменен", author: "Мария Смирнова" }
+        ];
 
         function toggleRequestForm() {
             const formContainer = document.getElementById('requestFormContainer');
@@ -212,3 +229,4 @@
     </script>
 </body>
 </html>
+
