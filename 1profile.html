@@ -158,13 +158,11 @@
             <img id="profileImage" src="i.webp" alt="Фото профиля" class="profile-picture">
             <p>Email: 
                 <span id="userEmail">example@example.com</span>
-                <input type="text" id="userEmailInput" class="edit-input" value="example@example.com">
-                <button class="btn" onclick="saveEdit('userEmail', 'userEmailInput')">Сохранить</button>
+                <input type="text" id="userEmailInput" class="edit-input" value="example@example.com" onblur="saveEdit('userEmail', 'userEmailInput')" onkeydown="if(event.key === 'Enter') saveEdit('userEmail', 'userEmailInput')">
             </p>
             <p>Имя: 
                 <span id="userName">Имя пользователя</span>
-                <input type="text" id="userNameInput" class="edit-input" value="Имя пользователя">
-                <button class="btn" onclick="saveEdit('userName', 'userNameInput')">Сохранить</button>
+                <input type="text" id="userNameInput" class="edit-input" value="Имя пользователя" onblur="saveEdit('userName', 'userNameInput')" onkeydown="if(event.key === 'Enter') saveEdit('userName', 'userNameInput')">
             </p>
             <p>
                 <label for="fileUpload" class="btn">Загрузить фото профиля</label>
@@ -189,18 +187,15 @@
                     <tr>
                         <td>
                             <span class="offer-name">Дизайн логотипа</span>
-                            <input type="text" class="edit-input" value="Дизайн логотипа">
-                            <button class="btn" onclick="saveOfferEdit(this)">Сохранить</button>
+                            <input type="text" class="edit-input" value="Дизайн логотипа" onblur="saveOfferEdit(this)" onkeydown="if(event.key === 'Enter') saveOfferEdit(this)">
                         </td>
                         <td>
                             <span class="offer-description">Создание уникального логотипа для вашего бизнеса.</span>
-                            <input type="text" class="edit-input" value="Создание уникального логотипа для вашего бизнеса.">
-                            <button class="btn" onclick="saveOfferEdit(this)">Сохранить</button>
+                            <input type="text" class="edit-input" value="Создание уникального логотипа для вашего бизнеса." onblur="saveOfferEdit(this)" onkeydown="if(event.key === 'Enter') saveOfferEdit(this)">
                         </td>
                         <td>
                             <span class="offer-status">Активно</span>
-                            <input type="text" class="edit-input" value="Активно">
-                            <button class="btn" onclick="saveOfferEdit(this)">Сохранить</button>
+                            <input type="text" class="edit-input" value="Активно" onblur="saveOfferEdit(this)" onkeydown="if(event.key === 'Enter') saveOfferEdit(this)">
                         </td>
                         <td>
                             <button class="btn" onclick="toggleOfferEdit(this)">Редактировать</button>
@@ -209,21 +204,18 @@
                     <tr>
                         <td>
                             <span class="offer-name">Разработка сайта</span>
-                            <input type="text" class="edit-input" value="Разработка сайта">
-                            <button class="btn" onclick="saveOfferEdit(this)">Сохранить</button>
+                            <input type="text" class="edit-input" value="Разработка сайта" onblur="saveOfferEdit(this)" onkeydown="if(event.key === 'Enter') saveOfferEdit(this)">
                         </td>
                         <td>
                             <span class="offer-description">Полная разработка и поддержка веб-сайтов.</span>
-                            <input type="text" class="edit-input" value="Полная разработка и поддержка веб-сайтов.">
-                            <button class="btn" onclick="saveOfferEdit(this)">Сохранить</button>
+                            <input type="text" class="edit-input" value="Полная разработка и поддержка веб-сайтов." onblur="saveOfferEdit(this)" onkeydown="if(event.key === 'Enter') saveOfferEdit(this)">
                         </td>
                         <td>
                             <span class="offer-status">Завершено</span>
-                            <input type="text" class="edit-input" value="Завершено">
-                            <button class="btn" onclick="saveOfferEdit(this)">Сохранить</button>
+                                                        <input type="text" class="edit-input" value="Завершено" onblur="saveOfferEdit(this)" onkeydown="if(event.key === 'Enter') saveOfferEdit(this)">
                         </td>
                         <td>
-                                                       <button class="btn" onclick="toggleOfferEdit(this)">Редактировать</button>
+                            <button class="btn" onclick="toggleOfferEdit(this)">Редактировать</button>
                         </td>
                     </tr>
                 </tbody>
@@ -245,18 +237,15 @@
                     <tr>
                         <td>
                             <span class="request-name">Запрос на дизайн сайта</span>
-                            <input type="text" class="edit-input" value="Запрос на дизайн сайта">
-                            <button class="btn" onclick="saveRequestEdit(this)">Сохранить</button>
+                            <input type="text" class="edit-input" value="Запрос на дизайн сайта" onblur="saveRequestEdit(this)" onkeydown="if(event.key === 'Enter') saveRequestEdit(this)">
                         </td>
                         <td>
                             <span class="request-description">Необходим новый дизайн для сайта компании.</span>
-                            <input type="text" class="edit-input" value="Необходим новый дизайн для сайта компании.">
-                            <button class="btn" onclick="saveRequestEdit(this)">Сохранить</button>
+                            <input type="text" class="edit-input" value="Необходим новый дизайн для сайта компании." onblur="saveRequestEdit(this)" onkeydown="if(event.key === 'Enter') saveRequestEdit(this)">
                         </td>
                         <td>
                             <span class="request-status">В ожидании</span>
-                            <input type="text" class="edit-input" value="В ожидании">
-                            <button class="btn" onclick="saveRequestEdit(this)">Сохранить</button>
+                            <input type="text" class="edit-input" value="В ожидании" onblur="saveRequestEdit(this)" onkeydown="if(event.key === 'Enter') saveRequestEdit(this)">
                         </td>
                         <td>
                             <button class="btn" onclick="toggleRequestEdit(this)">Редактировать</button>
@@ -265,18 +254,15 @@
                     <tr>
                         <td>
                             <span class="request-name">Запрос на разработку мобильного приложения</span>
-                            <input type="text" class="edit-input" value="Запрос на разработку мобильного приложения">
-                            <button class="btn" onclick="saveRequestEdit(this)">Сохранить</button>
+                            <input type="text" class="edit-input" value="Запрос на разработку мобильного приложения" onblur="saveRequestEdit(this)" onkeydown="if(event.key === 'Enter') saveRequestEdit(this)">
                         </td>
                         <td>
                             <span class="request-description">Требуется разработка приложения для iOS и Android.</span>
-                            <input type="text" class="edit-input" value="Требуется разработка приложения для iOS и Android.">
-                            <button class="btn" onclick="saveRequestEdit(this)">Сохранить</button>
+                            <input type="text" class="edit-input" value="Требуется разработка приложения для iOS и Android." onblur="saveRequestEdit(this)" onkeydown="if(event.key === 'Enter') saveRequestEdit(this)">
                         </td>
                         <td>
                             <span class="request-status">В процессе</span>
-                            <input type="text" class="edit-input" value="В процессе">
-                            <button class="btn" onclick="saveRequestEdit(this)">Сохранить</button>
+                            <input type="text" class="edit-input" value="В процессе" onblur="saveRequestEdit(this)" onkeydown="if(event.key === 'Enter') saveRequestEdit(this)">
                         </td>
                         <td>
                             <button class="btn" onclick="toggleRequestEdit(this)">Редактировать</button>
@@ -287,7 +273,7 @@
         </section>
     </main>
     <footer>
-        <p>&copy;RemoteBuddy</p>
+        <p>&copy; RemoteBuddy</p>
     </footer>
 
     <script>
@@ -329,18 +315,27 @@
                     input.focus();
                 } else {
                     input.style.display = 'none';
-                    spans[index].style.display = 'inline';
+                                       spans[index].style.display = 'inline';
                 }
             });
         }
 
-        function saveOfferEdit(button) {
-            const row = button.closest('tr');
-            const span = row.querySelector('span');
-            const input = row.querySelector('.edit-input');
-                    span.textContent = input.value;
-            input.style.display = 'none';
-            span.style.display = 'inline';
+        function saveOfferEdit(input) {
+            const row = input.closest('tr');
+            const offerName = row.querySelector('.offer-name');
+            const offerDescription = row.querySelector('.offer-description');
+            const offerStatus = row.querySelector('.offer-status');
+
+            offerName.textContent = row.querySelector('input').value;
+            offerDescription.textContent = row.querySelectorAll('input')[1].value;
+            offerStatus.textContent = row.querySelectorAll('input')[2].value;
+
+            row.querySelectorAll('.edit-input').forEach(input => {
+                input.style.display = 'none';
+            });
+            row.querySelectorAll('span').forEach(span => {
+                span.style.display = 'inline';
+            });
         }
 
         function toggleRequestEdit(button) {
@@ -360,13 +355,22 @@
             });
         }
 
-        function saveRequestEdit(button) {
-            const row = button.closest('tr');
-            const span = row.querySelector('span');
-            const input = row.querySelector('.edit-input');
-            span.textContent = input.value;
-            input.style.display = 'none';
-            span.style.display = 'inline';
+        function saveRequestEdit(input) {
+            const row = input.closest('tr');
+            const requestName = row.querySelector('.request-name');
+            const requestDescription = row.querySelector('.request-description');
+            const requestStatus = row.querySelector('.request-status');
+
+            requestName.textContent = row.querySelector('input').value;
+            requestDescription.textContent = row.querySelectorAll('input')[1].value;
+            requestStatus.textContent = row.querySelectorAll('input')[2].value;
+
+            row.querySelectorAll('.edit-input').forEach(input => {
+                input.style.display = 'none';
+            });
+            row.querySelectorAll('span').forEach(span => {
+                span.style.display = 'inline';
+            });
         }
     </script>
 </body>
