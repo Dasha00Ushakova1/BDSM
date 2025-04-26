@@ -8,139 +8,174 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
    <style>
-    body {
-        font-family: 'Source Sans 3', sans-serif;
-        background-color: #1e1e1e; /* Dark background */
-        color: #f0f0f0; /* Light text */
-        line-height: 1.6;
-        margin: 0;
-        padding: 0;
-    }
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: #1e1e1e; /* Тёмный фон */
+            color: #f0f0f0; /* Светлый текст */
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
 
-    header {
-        background-color: #282c34; /* Dark blue background */
-        color: #61dafb; /* Light blue text */
-        padding: 15px;
-        text-align: center;
-    }
+        header {
+            background-color: #282c34; /* Тёмно-синий фон */
+            color: #61dafb; /* Светло-голубой текст */
+            padding: 15px;
+            text-align: center;
+        }
 
-    .chat-container {
-        background: #2c2f33; /* Darker background for chat container */
-        border-radius: 8px;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-        width: 100%;
-        max-width: 600px;
-        padding: 20px;
-        margin: auto; /* Center the chat container */
-    }
-
-    .chat-box {
-        max-height: 400px;
-        overflow-y: auto;
-        margin-bottom: 15px;
-        padding: 10px;
-        border: 1px solid #444; /* Dark border */
-        border-radius: 5px;
-        background-color: #20232a; /* Dark chat background */
-    }
-
-    .message {
-        margin: 15px 0; /* Increased spacing between messages */
-        padding: 10px;
-        border-radius: 5px;
-        transition: background-color 0.3s; /* Smooth transition for hover effect */
-    }
-       
-    .sent {
-        background-color: #4db8e0; /* Light blue background for sent messages */
-        text-align: right;
-        color: #282c34; /* Dark text for sent messages */
-    }
-
-    .received {
-        background-color: #2162cc; /* Light red background for received messages */
-        text-align: left;
-        color: #ffffff; /* White text for received messages */
-    }
-
-    .message:hover {
-        background-color: rgba(255, 255, 255, 0.1); /* Light hover effect */
-    }
-
-    .timestamp {
-        font-size: 0.8em;
-        color: #bbb; /* Lighter color for timestamp */
-        display: block;
-        margin-top: 5px;
-    }
-
-    .input-container {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 10px;
-    }
-
-    .input-container input {
-        flex: 1;
-        padding: 10px;
-        border: 1px solid #444; /* Dark border */
-        border-radius: 5px;
-        margin-right: 10px;
-        background-color: #2c2f33; /* Dark background for input field */
-        color: #f0f0f0; /* Light text */
-    }
-
-    .input-container input::placeholder {
-        color: #bbb; /* Placeholder color */
-    }
-
-    .btn {
-        background-color: #61dafb; /* Light blue button */
-        color: #282c34; /* Dark text on button */
-        border: none;
-        border-radius: 5px;
-        padding: 10px 15px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-
-    .btn:hover {
-        background-color: #4db8e0; /* Darker shade on hover */
-    }
-
-    footer {
-        background-color: #282c34; /* Dark background */
-        color: #61dafb; /* Light blue text */
-        text-align: center;
-        padding: 10px 0;
-        position: relative;
-        bottom: 0;
-        width: 100%;
-    }
-
-    @media (max-width: 768px) {
         nav ul {
-            flex-direction: column; /* Vertical layout on mobile */
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            flex-wrap: wrap; /* Элементы могут переходить на новую строку */
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #61dafb; /* Светло-голубой текст */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+         .logo {
+            width: 100px; /* Размер логотипа */
+            height: 100px; /* Размер логотипа */
+            border-radius: 50%; /* Круглая форма логотипа */
+            object-fit: cover; /* Обеспечивает заполнение области */
+            margin-bottom: 10px; /* Отступ снизу */
         }
 
         .chat-container {
-            padding: 15px; /* Reduce padding on mobile */
+            background: #2c2f33; /* Более тёмный фон для контейнера чата */
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
         }
 
         .chat-box {
-            max-height: 300px; /* Reduce chat height on mobile */
+            max-height: 400px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid ; /* Темная рамка */
+            border-radius: 5px;
+            background-color:; /* Тёмный фон чата */
+        }
+
+        .message {
+        margin: 20px 0; /* Увеличение интервала между сообщениями */
+        padding: 10px;
+        border-radius: 5px;
+    }
+       
+    .sent {
+        background-color: #4db8e0; /* Светло-голубой фон для отправленных сообщений */
+        text-align: right;
+        color: #282c34; /* Изменение цвета текста в отправленных сообщениях */
+    }
+
+      .received {
+        background-color: #2162cc; /* Светло-красный фон для полученных сообщений */
+        text-align: left;
+        color: #000000; /* Изменение цвета текста в полученных сообщениях */
+    }
+
+        .timestamp {
+            font-size: 0.8em;
+            color: #1d2026; /* Более светлый цвет для времени */
+            display: block;
+            margin-top: 5px;
+        }
+
+        .input-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
         }
 
         .input-container input {
-            margin-right: 5px; /* Reduce margin between input and button */
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #444; /* Темная рамка */
+            border-radius: 5px;
+            margin-right: 10px;
+            background-color: #2c2f33; /* Тёмный фон для поля ввода */
+            color: #f0f0f0; /* Светлый текст */
+        }
+
+        .input-container input::placeholder {
+            color: #bbb; /* Цвет плейсхолдера */
         }
 
         .btn {
-            width: 100%; /* Full width button on mobile */
-            margin-top: 5px; /* Margin above button */
+            background-color: #61dafb; /* Светло-голубая кнопка */
+            color: #282c34; /* Тёмный текст на кнопке */
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
-    }
-</style>
+
+        .btn:hover {
+            background-color: #4db8e0; /* Более тёмный оттенок при наведении */
+        }
+
+        footer {
+            background-color: #282c34; /* Темный фон */
+            color: #61dafb; /* Светлый синий текст */
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column; /* Вертикальное расположение на мобиль
+                /* Вертикальное расположение на мобильных устройствах */
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            .chat-container {
+                padding: 15px; /* Уменьшение отступов на мобильных */
+            }
+
+            .chat-box {
+                max-height: 300px; /* Уменьшение высоты чата на мобильных */
+            }
+
+            .input-container input {
+                margin-right: 5px; /* Уменьшение отступа между полем ввода и кнопкой */
+            }
+
+            .btn {
+                width: 100%; /* Кнопка занимает всю ширину на мобильных */
+                margin-top: 5px; /* Отступ сверху для кнопки */
+            }
+        }
+    </style>
 
 </head>
 <body>
