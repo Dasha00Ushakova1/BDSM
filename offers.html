@@ -109,12 +109,9 @@
         th {
             background-color: #20232a;
         }
-          .logo {
-            width: 100px; /* Adjust size as needed */
-            height: 100px; /* Adjust size as needed */
-            border-radius: 50%; /* Makes the image circular */
-            object-fit: cover; /* Ensures the image covers the area */
-            margin-bottom: 10px; /* Space below the logo */
+
+        .edit-btn {
+            background-color: #ffa500; /* Оранжевая кнопка для редактирования */
         }
 
         footer {
@@ -135,14 +132,14 @@
                 font-size: 12px; /* Уменьшение шрифта таблицы на мобильных устройствах */
             }
             header img {
-                max-width: 80px;                /* Уменьшение размера логотипа на мобильных устройствах */
+                max-width: 80px; /* Уменьшение размера логотипа на мобильных устройствах */
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="2e4b17e6-a650-4c03-99dc-bf0ad6f6be9b.png" alt="Логотип RemoteBuddy">
+                <img src="2e4b17e6-a650-4c03-99dc-bf0ad6f6be9b.png" alt="Логотип RemoteBuddy">
         <h1>RemoteBuddy</h1>
         <nav>
             <ul>
@@ -198,6 +195,7 @@
                         <td>5000 руб.</td>
                         <td>Иван Иванов</td>
                         <td>
+                            <button class="btn edit-btn" onclick="editOffer(this)">Редактировать</button>
                             <button class="btn" onclick="viewOffer('Дизайн логотипа')">Просмотреть</button>
                         </td>
                     </tr>
@@ -207,6 +205,7 @@
                         <td>30000 руб.</td>
                         <td>Мария Петрова</td>
                         <td>
+                            <button class="btn edit-btn" onclick="editOffer(this)">Редактировать</button>
                             <button class="btn" onclick="viewOffer('Разработка сайта')">Просмотреть</button>
                         </td>
                     </tr>
@@ -216,6 +215,7 @@
                         <td>2000 руб.</td>
                         <td>Светлана Смирнова</td>
                         <td>
+                            <button class="btn edit-btn" onclick="editOffer(this)">Редактировать</button>
                             <button class="btn" onclick="viewOffer('Копирайтинг')">Просмотреть</button>
                         </td>
                     </tr>
@@ -241,13 +241,14 @@
             const servicePrice = document.getElementById('servicePrice').value;
 
             // Создаем новую строку в таблице
-            const newRow = document.createElement('tr');
+                        const newRow = document.createElement('tr');
             newRow.innerHTML = `
                 <td>${serviceName}</td>
                 <td>${serviceDescription}</td>
-                                <td>${servicePrice} руб.</td>
+                <td>${servicePrice} руб.</td>
                 <td>${authorName}</td>
                 <td>
+                    <button class="btn edit-btn" onclick="editOffer(this)">Редактировать</button>
                     <button class="btn" onclick="viewOffer('${serviceName}')">Просмотреть</button>
                 </td>
             `;
@@ -262,9 +263,52 @@
             alert(`Просмотр предложения: ${serviceName}`);
             // Здесь можно добавить функционал для просмотра подробной информации о предложении
         }
+
+        function editOffer(button) {
+            const row = button.closest('tr');
+            const cells = row.querySelectorAll('td');
+            const serviceName = cells[0].innerText;
+            const serviceDescription = cells[1].innerText;
+            const servicePrice = cells[2].innerText.replace(' руб.', '');
+            const authorName = cells[3].innerText;
+
+            // Заполняем форму для редактирования
+            document.getElementById('authorName').value = authorName;
+            document.getElementById('serviceName').value = serviceName;
+            document.getElementById('serviceDescription').value = serviceDescription;
+            document.getElementById('servicePrice').value = servicePrice;
+
+            // Показываем форму
+            document.getElementById("formContainer").style.display = "block";
+
+            // Удаляем строку перед обновлением
+            row.remove();
+
+            // Изменяем текст кнопки на "Обновить"
+            const submitButton = document.querySelector('#offerForm button[type="submit"]');
+            submitButton.innerText = "Обновить предложение";
+            submitButton.onclick = function() {
+                const updatedRow = document.createElement('tr');
+                updatedRow.innerHTML = `
+                    <td>${serviceName}</td>
+                    <td>${serviceDescription}</td>
+                    <td>${servicePrice} руб.</td>
+                    <td>${authorName}</td>
+                    <td>
+                        <button class="btn edit-btn" onclick="editOffer(this)">Редактировать</button>
+                        <button class="btn" onclick="viewOffer('${serviceName}')">Просмотреть</button>
+                    </td>
+                `;
+                document.getElementById('offersTableBody').appendChild(updatedRow);
+
+                // Сбрасываем форму
+                document.getElementById('offerForm').reset();
+                document.getElementById("formContainer").style.display = "none"; // Скрываем форму после обновления
+                submitButton.innerText = "Создать предложение"; // Сбрасываем текст кнопки
+            };
+        }
     </script>
 </body>
 </html>
 
 
-                
