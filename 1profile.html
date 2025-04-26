@@ -150,17 +150,33 @@
     </header>
     <main>
         <section class="profile-info">
-            <h2>Информация о пользователе</h2>
-            <img src="i.webp" alt="Фото профиля" class="profile-picture"> <!-- Замените на URL вашей фотографии -->
-            <p>Email: <span id="userEmail">example@example.com</span>
-                <input type="text" id="userEmailInput" class="edit-input" value="example@example.com" onblur="saveEdit('userEmail', 'userEmailInput')">
-            </p>
-            <p>Имя: <span id="userName">Имя пользователя</span>
-                <input type="text" id="userNameInput" class="edit-input" value="Имя пользователя" onblur="saveEdit('userName', 'userNameInput')">
-            </p>
-            <button class="btn" onclick="toggleEdit('userEmail')">Редактировать Email</button>
-            <button class="btn" onclick="toggleEdit('userName')">Редактировать Имя</button>
-        </section>
+    <h2>Информация о пользователе</h2>
+    <img id="profileImage" src="i.webp" alt="Фото профиля" class="profile-picture"> <!-- Замените на URL вашей фотографии -->
+    <p>Email: <span id="userEmail">example@example.com</span>
+        <input type="text" id="userEmailInput" class="edit-input" value="example@example.com" onblur="saveEdit('userEmail', 'userEmailInput')">
+    </p>
+    <p>Имя: <span id="userName">Имя пользователя</span>
+        <input type="text" id="userNameInput" class="edit-input" value="Имя пользователя" onblur="saveEdit('userName', 'userNameInput')">
+    </p>
+    <p>
+        <label for="fileUpload" class="btn">Загрузить фото профиля</label>
+        <input type="file" id="fileUpload" accept="image/*" style="display: none;" onchange="previewImage(event)">
+    </p>
+    <button class="btn" onclick="toggleEdit('userEmail')">Редактировать Email</button>
+    <button class="btn" onclick="toggleEdit('userName')">Редактировать Имя</button>
+</section>
+
+<script>
+    function previewImage(event) {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('profileImage').src = e.target.result;
+        }
+        reader.readAsDataURL(file);
+    }
+</script>
+
 
         <section class="my-offers">
             <h3>Мои предложения</h3>
