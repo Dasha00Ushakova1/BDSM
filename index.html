@@ -109,6 +109,42 @@
             bottom: 0;
             width: 100%;
         }
+      .form-container {
+            background-color: #282c34; /* Темный фон для формы */
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 8px;
+            max-width: 800px;
+            text-align: left;
+            display: none; /* Скрыто по умолчанию */
+        }
+
+        .form-container label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        .form-container input,
+        .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #61dafb;
+            border-radius: 5px;
+            background-color: #20232a; /* Темный фон для полей ввода */
+            color: #f0f0f0; /* Светлый текст */
+        }
+     
+        .btn {
+            background-color: #61dafb; /* Светлая кнопка */
+            color: #282c34; /* Темный текст на кнопке */
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 0;
+            display: inline-block;
+            cursor: pointer;
+        }
 
         @media (max-width: 768px) {
             nav ul {
