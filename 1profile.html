@@ -116,6 +116,10 @@
             width: calc(100% - 20px);
             padding: 5px;
             margin-top: 5px;
+            border: 1px solid #61dafb; /* Light blue border for inputs */
+            border-radius: 4px; /* Rounded corners */
+            background-color: #282c34; /* Match input background with the table */
+            color: #f0f0f0; /* Light text for inputs */
         }
 
         @media (max-width: 600px) {
@@ -137,46 +141,34 @@
         <h1>RemoteBuddy</h1>
         <nav>
             <ul>
-                <li><a href="index.html">Главная</a></li>
+                <li><a href="index.html">Главная</a></<li>
                 <li><a href="profile.html">Профиль</a></li>
                 <li><a href="offers.html">Предложения</a></li>
                 <li><a href="requests.html">Запросы</a></li>
                 <li><a href="chat.html">Чат</a></li>
                 <li><a href="reviews.html">Отзывы</a></li>
                 <li><a href="about.html">О проекте</a></li>
-                <li><a href="profile.html" class="btn">Выйти</a></li>
+                <li><a href="logout.html" class="btn">Выйти</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <section class="profile-info">
-    <h2>Информация о пользователе</h2>
-    <img id="profileImage" src="i.webp" alt="Фото профиля" class="profile-picture"> <!-- Замените на URL вашей фотографии -->
-    <p>Email: <span id="userEmail">example@example.com</span>
-        <input type="text" id="userEmailInput" class="edit-input" value="example@example.com" onblur="saveEdit('userEmail', 'userEmailInput')">
-    </p>
-    <p>Имя: <span id="userName">Имя пользователя</span>
-        <input type="text" id="userNameInput" class="edit-input" value="Имя пользователя" onblur="saveEdit('userName', 'userNameInput')">
-    </p>
-    <p>
-        <label for="fileUpload" class="btn">Загрузить фото профиля</label>
-        <input type="file" id="fileUpload" accept="image/*" style="display: none;" onchange="previewImage(event)">
-    </p>
-    <button class="btn" onclick="toggleEdit('userEmail')">Редактировать Email</button>
-    <button class="btn" onclick="toggleEdit('userName')">Редактировать Имя</button>
-</section>
-
-<script>
-    function previewImage(event) {
-        const file = event.target.files[0];
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            document.getElementById('profileImage').src = e.target.result;
-        }
-        reader.readAsDataURL(file);
-    }
-</script>
-
+            <h2>Информация о пользователе</h2>
+            <img id="profileImage" src="i.webp" alt="Фото профиля" class="profile-picture">
+            <p>Email: <span id="userEmail">example@example.com</span>
+                <input type="text" id="userEmailInput" class="edit-input" value="example@example.com" onblur="saveEdit('userEmail', 'userEmailInput')">
+            </p>
+            <p>Имя: <span id="userName">Имя пользователя</span>
+                <input type="text" id="userNameInput" class="edit-input" value="Имя пользователя" onblur="saveEdit('userName', 'userNameInput')">
+            </p>
+            <p>
+                <label for="fileUpload" class="btn">Загрузить фото профиля</label>
+                <input type="file" id="fileUpload" accept="image/*" style="display: none;" onchange="previewImage(event)">
+            </p>
+            <button class="btn" onclick="toggleEdit('userEmail')">Редактировать Email</button>
+            <button class="btn" onclick="toggleEdit('userName')">Редактировать Имя</button>
+        </section>
 
         <section class="my-offers">
             <h3>Мои предложения</h3>
@@ -203,7 +195,9 @@
                             <span class="offer-status">Активно</span>
                             <input type="text" class="edit-input" value="Активно" onblur="saveOfferEdit(this)">
                         </td>
-                        <td><button class="btn" onclick="toggleOfferEdit(this)">Редактировать</button></td>
+                        <td>
+                            <button class="btn" onclick="toggleOfferEdit(this)">Редактировать</button>
+                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -218,7 +212,9 @@
                             <span class="offer-status">Завершено</span>
                             <input type="text" class="edit-input" value="Завершено" onblur="saveOfferEdit(this)">
                         </td>
-                        <td><button class="btn" onclick="toggleOfferEdit(this)">Редактировать</button></td>
+                        <td>
+                            <button class="btn" onclick="toggleOfferEdit(this)">Редактировать</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -233,105 +229,124 @@
                         <th>Описание</th>
                         <th>Статус</th>
                         <th>Действия</th>
-                    </tr>
-                </thead>
+                                </thead>
                 <tbody>
                     <tr>
                         <td>
-                                                     <input type="text" class="edit-input" value="Поиск копирайтера" onblur="saveRequestEdit(this)">
+                            <span class="request-name">Запрос на дизайн</span>
+                            <input type="text" class="edit-input" value="Запрос на дизайн" onblur="saveRequestEdit(this)">
                         </td>
                         <td>
-                            <span class="request-description">Требуется копирайтер для написания статей.</span>
-                            <input type="text" class="edit-input" value="Требуется копирайтер для написания статей." onblur="saveRequestEdit(this)">
+                            <span class="request-description">Нужен свежий взгляд на логотип.</span>
+                            <input type="text" class="edit-input" value="Нужен свежий взгляд на логотип." onblur="saveRequestEdit(this)">
                         </td>
                         <td>
                             <span class="request-status">В ожидании</span>
                             <input type="text" class="edit-input" value="В ожидании" onblur="saveRequestEdit(this)">
                         </td>
-                        <td><button class="btn" onclick="toggleRequestEdit(this)">Редактировать</button></td>
+                        <td>
+                            <button class="btn" onclick="toggleRequestEdit(this)">Редактировать</button>
+                        </td>
                     </tr>
                     <tr>
                         <td>
-                            <span class="request-name">Поиск графического дизайнера</span>
-                            <input type="text" class="edit-input" value="Поиск графического дизайнера" onblur="saveRequestEdit(this)">
+                            <span class="request-name">Запрос на разработку сайта</span>
+                            <input type="text" class="edit-input" value="Запрос на разработку сайта" onblur="saveRequestEdit(this)">
                         </td>
                         <td>
-                            <span class="request-description">Нужен дизайнер для создания рекламных материалов.</span>
-                            <input type="text" class="edit-input" value="Нужен дизайнер для создания рекламных материалов." onblur="saveRequestEdit(this)">
+                            <span class="request-description">Нужен функциональный сайт для бизнеса.</span>
+                            <input type="text" class="edit-input" value="Нужен функциональный сайт для бизнеса." onblur="saveRequestEdit(this)">
                         </td>
                         <td>
-                            <span class="request-status">Активно</span>
-                            <input type="text" class="edit-input" value="Активно" onblur="saveRequestEdit(this)">
+                            <span class="request-status">В процессе</span>
+                            <input type="text" class="edit-input" value="В процессе" onblur="saveRequestEdit(this)">
                         </td>
-                        <td><button class="btn" onclick="toggleRequestEdit(this)">Редактировать</button></td>
+                        <td>
+                            <button class="btn" onclick="toggleRequestEdit(this)">Редактировать</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </section>
     </main>
-
     <footer>
-        <p>&copy; RemoteBuddy</p>
+        <p>&copy; 2025 RemoteBuddy. Все права защищены.</p>
     </footer>
 
     <script>
-        function toggleEdit(fieldId) {
-            const span = document.getElementById(fieldId);
-            const input = document.getElementById(fieldId + 'Input');
-            const editInput = input.style.display === 'none' ? 'block' : 'none';
-            const spanDisplay = editInput === 'block' ? 'none' : 'inline';
-            input.style.display = editInput;
-            span.style.display = spanDisplay;
-        }
+        function toggleEdit(field) {
+            const span = document.getElementById(field);
+            const input = document.getElementById(field + 'Input');
+            const isEditing = input.style.display === 'block';
 
-        function toggleOfferEdit(button) {
-            const row = button.closest('tr');
-            const inputs = row.querySelectorAll('.edit-input');
-            inputs.forEach(input => {
-                input.style.display = input.style.display === 'none' ? 'block' : 'none';
-            });
-            const spans = row.querySelectorAll('span');
-            spans.forEach(span => {
-                span.style.display = span.style.display === 'none' ? 'inline' : 'none';
-            });
-        }
-
-        function toggleRequestEdit(button) {
-            const row = button.closest('tr');
-            const inputs = row.querySelectorAll('.edit-input');
-            inputs.forEach(input => {
-                input.style.display = input.style.display === 'none' ? 'block' : 'none';
-            });
-            const spans = row.querySelectorAll('span');
-            spans.forEach(span => {
-                span.style.display = span.style.display === 'none' ? 'inline' : 'none';
-            });
+            if (isEditing) {
+                span.style.display = 'inline';
+                input.style.display = 'none';
+            } else {
+                span.style.display = 'none';
+                input.style.display = 'block';
+                input.focus();
+            }
         }
 
         function saveEdit(spanId, inputId) {
             const span = document.getElementById(spanId);
             const input = document.getElementById(inputId);
             span.textContent = input.value;
-            input.style.display = 'none';
             span.style.display = 'inline';
+            input.style.display = 'none';
+        }
+
+        function toggleOfferEdit(button) {
+            const row = button.closest('tr');
+            const inputs = row.querySelectorAll('.edit-input');
+
+            inputs.forEach(input => {
+                const isEditing = input.style.display === 'block';
+                input.style.display = isEditing ? 'none' : 'block';
+                const span = input.previousElementSibling;
+                span.style.display = isEditing ? 'inline' : 'none';
+            });
         }
 
         function saveOfferEdit(input) {
             const row = input.closest('tr');
-            const span = row.querySelector('.offer-name');
+            const span = row.querySelector('.offer-name, .offer-description, .offer-status');
             span.textContent = input.value;
-            input.style.display = 'none';
             span.style.display = 'inline';
+            input.style.display = 'none';
+        }
+
+        function toggleRequestEdit(button) {
+            const row = button.closest('tr');
+            const inputs = row.querySelectorAll('.edit-input');
+
+            inputs.forEach(input => {
+                const isEditing = input.style.display === 'block';
+                input.style.display = isEditing ? 'none' : 'block';
+                const span = input.previousElementSibling;
+                span.style.display = isEditing ? 'inline' : 'none';
+            });
         }
 
         function saveRequestEdit(input) {
             const row = input.closest('tr');
-            const span = row.querySelector('.request-name');
+            const span = row.querySelector('.request-name, .request-description, .request-status');
             span.textContent = input.value;
-            input.style.display = 'none';
             span.style.display = 'inline';
+            input.style.display = 'none';
+        }
+
+        function previewImage(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('profileImage').src = e.target.result;
+            }
+            reader.readAsDataURL(file);
         }
     </script>
 </body>
 </html>
+
 
