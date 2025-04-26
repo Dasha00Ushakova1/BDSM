@@ -123,7 +123,8 @@
             bottom: 0;
             width: 100%;
         }
-          .logo {
+
+        .logo {
             width: 100px; /* Adjust size as needed */
             height: 100px; /* Adjust size as needed */
             border-radius: 50%; /* Makes the image circular */
@@ -133,7 +134,8 @@
 
         @media (max-width: 600px) {
             nav ul {
-                flex-direction: column; /* Вертикальное отображение для мобильных устройств */
+                flex-direction: column;
+                /* Вертикальное отображение для мобильных устройств */
             }
             table {
                 font-size: 12px; /* Уменьшение шрифта таблицы на мобильных устройствах */
@@ -203,7 +205,6 @@
                         <td>Иван Иванов</td>
                         <td>
                             <button class="btn edit-btn" onclick="editOffer(this)">Редактировать</button>
-                            <button class="btn" onclick="viewOffer('Дизайн логотипа')">Просмотреть</button>
                         </td>
                     </tr>
                     <tr>
@@ -213,7 +214,6 @@
                         <td>Мария Петрова</td>
                         <td>
                             <button class="btn edit-btn" onclick="editOffer(this)">Редактировать</button>
-                            <button class="btn" onclick="viewOffer('Разработка сайта')">Просмотреть</button>
                         </td>
                     </tr>
                     <tr>
@@ -223,7 +223,6 @@
                         <td>Светлана Смирнова</td>
                         <td>
                             <button class="btn edit-btn" onclick="editOffer(this)">Редактировать</button>
-                            <button class="btn" onclick="viewOffer('Копирайтинг')">Просмотреть</button>
                         </td>
                     </tr>
                 </tbody>
@@ -236,8 +235,12 @@
     </footer>
 
     <script>
+        let isEditing = false;
+        let currentRow;
+
         document.getElementById("showFormButton").onclick = function() {
             document.getElementById("formContainer").style.display = "block"; // Показываем форму
+            isEditing = false; // Сбрасываем состояние редактирования
         };
 
         document.getElementById("offerForm").onsubmit = function(event) {
@@ -247,75 +250,46 @@
             const serviceDescription = document.getElementById('serviceDescription').value;
             const servicePrice = document.getElementById('servicePrice').value;
 
-            // Создаем новую строку в таблице
-                        const newRow = document.createElement('tr');
-            newRow.innerHTML = `
-                <td>${serviceName}</td>
-                <td>${serviceDescription}</td>
-                <td>${servicePrice} руб.</td>
-                <td>${authorName}</td>
-                <td>
-                    <button class="btn edit-btn" onclick="editOffer(this)">Редактировать</button>
-                    <button class="btn" onclick="viewOffer('${serviceName}')">Просмотреть</button>
-                </td>
-            `;
-            document.getElementById('offersTableBody').appendChild(newRow);
-
-            // Сбрасываем форму
-            document.getElementById('offerForm').reset();
-            document.getElementById("formContainer").style.display = "none"; // Скрываем форму после отправки
-        };
-
-        function viewOffer(serviceName) {
-            alert(`Просмотр предложения: ${serviceName}`);
-            // Здесь можно добавить функционал для просмотра подробной информации о предложении
-        }
-
-        function editOffer(button) {
-            const row = button.closest('tr');
-            const cells = row.querySelectorAll('td');
-            const serviceName = cells[0].innerText;
-            const serviceDescription = cells[1].innerText;
-            const servicePrice = cells[2].innerText.replace(' руб.', '');
-            const authorName = cells[3].innerText;
-
-            // Заполняем форму для редактирования
-            document.getElementById('authorName').value = authorName;
-            document.getElementById('serviceName').value = serviceName;
-            document.getElementById('serviceDescription').value = serviceDescription;
-            document.getElementById('servicePrice').value = servicePrice;
-
-            // Показываем форму
-            document.getElementById("formContainer").style.display = "block";
-
-            // Удаляем строку перед обновлением
-            row.remove();
-
-            // Изменяем текст кнопки на "Обновить"
-            const submitButton = document.querySelector('#offerForm button[type="submit"]');
-            submitButton.innerText = "Обновить предложение";
-            submitButton.onclick = function() {
-                const updatedRow = document.createElement('tr');
-                updatedRow.innerHTML = `
+            if (isEditing) {
+                // Обновляем существующее предложение
+                currentRow.cells[0].innerText = serviceName;
+                currentRow.cells[1].innerText = serviceDescription;
+                currentRow.cells[2].innerText = servicePrice + ' руб.';
+                currentRow.cells[3].innerText = authorName; // Обновляем имя автора
+                isEditing = false; // Сбрасываем состояние редактирования
+            } else {
+                // Добавляем новое предложение
+                const newRow = document.createElement('tr');
+                newRow.innerHTML = `
                     <td>${serviceName}</td>
                     <td>${serviceDescription}</td>
                     <td>${servicePrice} руб.</td>
                     <td>${authorName}</td>
                     <td>
                         <button class="btn edit-btn" onclick="editOffer(this)">Редактировать</button>
-                        <button class="btn" onclick="viewOffer('${serviceName}')">Просмотреть</button>
                     </td>
                 `;
-                document.getElementById('offersTableBody').appendChild(updatedRow);
+                document.getElementById('offersTableBody').appendChild(newRow);
+            }
 
-                // Сбрасываем форму
-                document.getElementById('offerForm').reset();
-                document.getElementById("formContainer").style.display = "none"; // Скрываем форму после обновления
-                submitButton.innerText = "Создать предложение"; // Сбрасываем текст кнопки
-            };
+            // Сбрасываем форму
+            document.getElementById("offerForm").reset();
+            document.getElementById("formContainer").style.display = "none"; // Скрываем форму
+        };
+
+        function editOffer(button) {
+            isEditing = true; // Устанавливаем режим редактирования
+            currentRow = button.parentElement.parentElement; // Получаем текущую строку
+
+            // Заполняем форму данными из строки
+            document.getElementById('serviceName').value = currentRow.cells[0].innerText;
+            document.getElementById('serviceDescription').value = currentRow.cells[1].innerText;
+            document.getElementById('servicePrice').value = currentRow.cells[2].innerText.replace(' руб.', '');
+            document.getElementById('authorName').value = currentRow.cells[3].innerText;
+
+            document.getElementById("formContainer").style.display = "block"; // Показываем форму
         }
     </script>
 </body>
 </html>
-
 
