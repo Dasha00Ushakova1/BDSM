@@ -22,7 +22,7 @@
             text-align: center;
         }
 
-       .logo {
+        .logo {
             width: 100px; /* Размер логотипа */
             height: 100px; /* Размер логотипа */
             border-radius: 50%; /* Круглая форма логотипа */
@@ -63,6 +63,12 @@
             margin: 20px auto;
             max-width: 800px;
             text-align: left;
+        }
+
+        .reviews-header {
+            display: flex;
+            justify-content: space-between; /* Space between the heading and button */
+            align-items: center; /* Center vertically */
         }
 
         .btn {
@@ -126,14 +132,13 @@
             background-color: #282c34; /* Changed to match the theme */
             margin: 5% auto; /* 15% from the top and centered */
             padding: 20px;
-            border: 1px solid #888;
+                        border: 1px solid #888;
             width: 80%; /* Could be more or less, depending on screen size */
             border-radius: 8px;
             text-align: left;
             color: #f0f0f0; /* Light text for better readability */
         }
 
-       
         .close {
             color: #aaa;
             float: right;
@@ -191,72 +196,38 @@
     </header>
     <main>
         <section class="reviews-container">
-            <h2>Отзывы пользователей</h2>
-            <button class="btn" onclick="openReviewForm()">Оставить отзыв</button>
+            <div class="reviews-header">
+                <h2>Отзывы пользователей</h2>
+                <button class="btn" onclick="openReviewForm()">Оставить отзыв</button>
+            </div>
             
             <div class="reviews-list" id="reviews-list">
                 <div class="review">
-    <h3>Алексей Петров</h3>
-    <p>Супер платформа! Найти исполнителя было легко и быстро. Буду пользоваться снова.</p>
-    <span class="timestamp">15.04.2025</span>
-</div>
-<div class="review">
-    <h3>Мария Кузнецова</h3>
-    <p>Отличный сервис для фрилансеров. Все очень удобно и интуитивно понятно.</p>
-    <span class="timestamp">22.04.2025</span>
-</div>
-<div class="review">
-    <h3>Дмитрий Сидоров</h3>
-    <p>Работаю на платформе уже год. Никогда не было проблем, все на высшем уровне.</p>
-    <span class="timestamp">18.04.2025</span>
-</div>
-<div class="review">
-    <h3>Елена Васильева</h3>
-    <p>Рекомендую всем, кто ищет качественных исполнителей. Очень довольна результатом!</p>
-    <span class="timestamp">25.04.2025</span>
-</div>
-<div class="review">
-    <h3>Николай Орлов</h3>
-    <p>Прекрасный опыт! Быстро нашел нужного специалиста и остался доволен работой.</p>
-    <span class="timestamp">27.04.2025</span>
-</div>
-<div class="reviews-list" id="reviews-list">
-    <div class="review">
-        <h3>Иван Иванов</h3>
-        <p>Отличная платформа для поиска фрилансеров! Очень рекомендую.</p>
-        <span class="timestamp">10.04.2025</span>
-    </div>
-    <div class="review">
-        <h3>Светлана Смирнова</h3>
-        <p>Пользуюсь услугами платформы уже несколько месяцев и очень довольна.</p>
-        <span class="timestamp">20.04.2025</span>
-    </div>
-    <div class="review">
-        <h3>Алексей Петров</h3>
-        <p>Супер платформа! Найти исполнителя было легко и быстро. Буду пользоваться снова.</p>
-        <span class="timestamp">15.04.2025</span>
-    </div>
-    <div class="review">
-        <h3>Мария Кузнецова</h3>
-        <p>Отличный сервис для фрилансеров. Все очень удобно и интуитивно понятно.</p>
-        <span class="timestamp">22.04.2025</span>
-    </div>
-    <div class="review">
-        <h3>Дмитрий Сидоров</h3>
-        <p>Работаю на платформе уже год. Никогда не было проблем, все на высшем уровне.</p>
-        <span class="timestamp">18.04.2025</span>
-    </div>
-    <div class="review">
-        <h3>Елена Васильева</h3>
-        <p>Рекомендую всем, кто ищет качественных исполнителей. Очень довольна результатом!</p>
-        <span class="timestamp">25.04.2025</span>
-    </div>
-    <div class="review">
-        <h3>Николай Орлов</h3>
-        <p>Прекрасный опыт! Быстро нашел нужного специалиста и остался доволен работой.</p>
-        <span class="timestamp">27.04.2025</span>
-    </div>
-</div>
+                    <h3>Алексей Петров</h3>
+                    <p>Супер платформа! Найти исполнителя было легко и быстро. Буду пользоваться снова.</p>
+                    <span class="timestamp">15.04.2025</span>
+                </div>
+                <div class="review">
+                    <h3>Мария Кузнецова</h3>
+                    <p>Отличный сервис для фрилансеров. Все очень удобно и интуитивно понятно.</p>
+                    <span class="timestamp">22.04.2025</span>
+                </div>
+                <div class="review">
+                    <h3>Дмитрий Сидоров</h3>
+                    <p>Работаю на платформе уже год. Никогда не было проблем, все на высшем уровне.</p>
+                    <span class="timestamp">18.04.2025</span>
+                </div>
+                <div class="review">
+                    <h3>Елена Васильева</h3>
+                    <p>Рекомендую всем, кто ищет качественных исполнителей. Очень довольна результатом!</p>
+                    <span class="timestamp">25.04.2025</span>
+                </div>
+                <div class="review">
+                    <h3>Николай Орлов</h3>
+                    <p>Прекрасный опыт! Быстро нашел нужного специалиста и остался доволен работой.</p>
+                    <span class="timestamp">27.04.2025</span>
+                </div>
+            </div>
         </section>
     </main>
     
@@ -264,63 +235,57 @@
     <div id="reviewModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeReviewForm()">&times;</span>
-            <h2>Оставить отзыв</h2>
+                        <h2>Оставить отзыв</h2>
             <form id="reviewForm">
-                <label for="username">Ваше имя:</label>
-                <input type="text" id="username" required>
-                
-                <label for="reviewText">Ваш отзыв:</label>
-                <textarea id="reviewText" rows="4" required></textarea>
-                
+                <input type="text" id="reviewerName" placeholder="Ваше имя" required>
+                <textarea id="reviewText" placeholder="Ваш отзыв" required></textarea>
                 <button type="submit" class="btn">Отправить</button>
             </form>
         </div>
     </div>
 
     <footer>
-        <p>&copy; RemoteBuddy</p>
-        <ul>
-            <!-- Здесь можно добавить ссылки на социальные сети или другую информацию -->
-        </ul>
+        <p>&copy; 2025 RemoteBuddy. Все права защищены.</p>
     </footer>
 
     <script>
         function openReviewForm() {
-            document.getElementById('reviewModal').style.display = 'block';
+            document.getElementById("reviewModal").style.display = "block";
         }
 
         function closeReviewForm() {
-            document.getElementById('reviewModal').style.display = 'none';
+            document.getElementById("reviewModal").style.display = "none";
         }
 
-        // Обработка формы отзыва
-        document.getElementById('reviewForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Предотвращаем стандартное поведение формы
-
-            const username = document.getElementById('username').value;
-            const reviewText = document.getElementById('reviewText').value;
-
-            const newReview = document.createElement('div');
-                       newReview.classList.add('review');
-            newReview.innerHTML = `
-                <h3>${username}</h3>
-                <p>${reviewText}</p>
-                <span class="timestamp">${new Date().toLocaleDateString()}</span>
-            `;
-
-            document.getElementById('reviews-list').appendChild(newReview);
-            closeReviewForm(); // Закрываем модальное окно
-            document.getElementById('reviewForm').reset(); // Сбрасываем форму
-        });
-
-        // Закрытие модального окна при нажатии вне его области
+        // Закрытие модального окна при клике вне его
         window.onclick = function(event) {
-            const modal = document.getElementById('reviewModal');
-            if (event.target === modal) {
+            const modal = document.getElementById("reviewModal");
+            if (event.target == modal) {
                 closeReviewForm();
             }
+        }
+
+        // Обработка отправки формы
+        document.getElementById("reviewForm").onsubmit = function(event) {
+            event.preventDefault(); // Предотвращаем перезагрузку страницы
+
+            const name = document.getElementById("reviewerName").value;
+            const review = document.getElementById("reviewText").value;
+
+            // Создаем новый элемент отзыва
+            const newReview = document.createElement("div");
+            newReview.classList.add("review");
+            newReview.innerHTML = `<h3>${name}</h3><p>${review}</p><span class="timestamp">${new Date().toLocaleDateString()}</span>`;
+            
+            // Добавляем новый отзыв в список
+            document.getElementById("reviews-list").prepend(newReview);
+
+            // Очищаем форму
+            document.getElementById("reviewForm").reset();
+            closeReviewForm();
         }
     </script>
 </body>
 </html>
+
 
