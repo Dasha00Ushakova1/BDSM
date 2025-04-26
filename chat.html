@@ -4,104 +4,167 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Чат - RemoteBuddy</title>
+     <link rel="icon" href="2e4b17e6-a650-4c03-99dc-bf0ad6f6be9b.png" sizes="32x32" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: black; /* Изменен цвет фона */
-            color: #333;
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: #1e1e1e; /* Тёмный фон */
+            color: #f0f0f0; /* Светлый текст */
             line-height: 1.6;
             margin: 0;
+            padding: 0;
         }
+
         header {
-            background-color: #282c34;
-            color: #61dafb;
+            background-color: #282c34; /* Тёмно-синий фон */
+            color: #61dafb; /* Светло-голубой текст */
             padding: 15px;
             text-align: center;
         }
+
         nav ul {
             list-style: none;
             padding: 0;
             display: flex;
             justify-content: center;
             margin-top: 10px;
+            flex-wrap: wrap; /* Элементы могут переходить на новую строку */
         }
+
         nav ul li {
             margin: 0 10px;
         }
+
         nav ul li a {
-            color: #61dafb;
+            color: #61dafb; /* Светло-голубой текст */
             text-decoration: none;
             font-weight: bold;
         }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
         main {
             padding: 20px;
             display: flex;
             justify-content: center;
         }
+
         .chat-container {
-            background: #ffffff; /* Изменен цвет фона чата */
+            background: #2c2f33; /* Более тёмный фон для контейнера чата */
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
             width: 100%;
             max-width: 600px;
             padding: 20px;
         }
+
         .chat-box {
             max-height: 400px;
             overflow-y: auto;
             margin-bottom: 15px;
             padding: 10px;
-            border: 1px solid #ccc;
+            border: 1px solid #444; /* Темная рамка */
             border-radius: 5px;
-            background-color: #f9f9f9;
+            background-color: #20232a; /* Тёмный фон чата */
         }
+
         .message {
             margin: 10px 0;
             padding: 10px;
             border-radius: 5px;
         }
+
         .sent {
-            background-color: #d1e7dd;
+            background-color: #4db8e0; /* Светло-голубой фон для отправленных сообщений */
             text-align: right;
         }
+
         .received {
-            background-color: #f8d7da;
+            background-color: #f8d7da; /* Светло-красный фон для полученных сообщений */
             text-align: left;
         }
+
         .timestamp {
             font-size: 0.8em;
-            color: #666;
+            color: #bbb; /* Более светлый цвет для времени */
             display: block;
             margin-top: 5px;
         }
+
         .input-container {
             display: flex;
             justify-content: space-between;
+            margin-top: 10px;
         }
+
         .input-container input {
             flex: 1;
             padding: 10px;
-            border: 1px solid #ccc;
+            border: 1px solid #444; /* Темная рамка */
             border-radius: 5px;
             margin-right: 10px;
+            background-color: #2c2f33; /* Тёмный фон для поля ввода */
+            color: #f0f0f0; /* Светлый текст */
         }
+
+        .input-container input::placeholder {
+            color: #bbb; /* Цвет плейсхолдера */
+        }
+
         .btn {
-            background-color: #61dafb;
-            color: #282c34;
+            background-color: #61dafb; /* Светло-голубая кнопка */
+            color: #282c34; /* Тёмный текст на кнопке */
             border: none;
             border-radius: 5px;
             padding: 10px 15px;
             cursor: pointer;
+            transition: background-color 0.3s;
         }
+
+        .btn:hover {
+            background-color: #4db8e0; /* Более тёмный оттенок при наведении */
+        }
+
         footer {
-            background-color: #282c34;
-            color: #61dafb;
+            background-color: #282c34; /* Темный фон */
+            color: #61dafb; /* Светлый синий текст */
             text-align: center;
             padding: 10px 0;
             position: relative;
             bottom: 0;
             width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column; /* Вертикальное расположение на мобиль
+                /* Вертикальное расположение на мобильных устройствах */
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            .chat-container {
+                padding: 15px; /* Уменьшение отступов на мобильных */
+            }
+
+            .chat-box {
+                max-height: 300px; /* Уменьшение высоты чата на мобильных */
+            }
+
+            .input-container input {
+                margin-right: 5px; /* Уменьшение отступа между полем ввода и кнопкой */
+            }
+
+            .btn {
+                width: 100%; /* Кнопка занимает всю ширину на мобильных */
+                margin-top: 5px; /* Отступ сверху для кнопки */
+            }
         }
     </style>
 </head>
@@ -134,7 +197,6 @@
     </main>
     <footer>
         <p>&copy; RemoteBuddy</p>
-                </ul>
     </footer>
 
     <script>
@@ -171,23 +233,32 @@
 
         // Пример вызова receiveMessage с 10 различными сообщениями
         const messages = [
-            { userName: 'Анна', text: 'Привет всем!' },
-            { userName: 'Иван', text: 'Как дела?' },
-            { userName: 'Светлана', text: 'Кто что делал на выходных?' },
-            { userName: 'Дмитрий', text: 'Я ездил на дачу.' },
-            { userName: 'Елена', text: 'Слышали про новую игру?' },
-            { userName: 'Алексей', text: 'Да, она выглядит интересно!' },
-            { userName: 'Мария', text: 'Я тоже хочу поиграть!' },
-            { userName: 'Сергей', text: 'Когда собираемся играть?' },
-            { userName: 'Ольга', text: 'Давайте в пятницу?' },
-            { userName: 'Кирилл', text: 'Отличная идея!' },
-        ];
-
-        // Имитация получения сообщений
+    { userName: 'Анна', text: 'Привет всем! Как дела с проектом?' },
+    { userName: 'Иван', text: 'Все хорошо, почти закончил новую фичу.' },
+    { userName: 'Светлана', text: 'Кто что делал на выходных? Я изучала новый фреймворк.' },
+    { userName: 'Дмитрий', text: 'Я ездил на дачу, но все равно немного кодил.' },
+    { userName: 'Елена', text: 'Слышали про новую версию React?' },
+    { userName: 'Алексей', text: 'Да, она выглядит интересно! Новые хуки просто супер!' },
+    { userName: 'Мария', text: 'Я тоже хочу поиграть с хуками!' },
+    { userName: 'Сергей', text: 'Когда собираемся делать код-ревью?' },
+    { userName: 'Ольга', text: 'Давайте в пятницу? У меня есть несколько вопросов!' },
+    { userName: 'Кирилл', text: 'Отличная идея! Я могу подготовить некоторые примеры.' },
+    { userName: 'Марина', text: 'Кто пробовал писать тесты с Jest?' },
+    { userName: 'Павел', text: 'Я использовал его, очень удобно для юнит-тестирования!' },
+    { userName: 'Наталья', text: 'Какой у вас опыт с TypeScript?' },
+    { userName: 'Максим', text: 'Я только начал, но уже вижу преимущества.' },
+    { userName: 'Антон', text: 'А кто использует Docker для разработки?' },
+    { userName: 'Виктория', text: 'Я использую, это значительно упрощает развертывание!' },
+    { userName: 'Григорий', text: 'Как насчет того, чтобы провести хакатон на выходных?' },
+    { userName: 'Евгения', text: 'Звучит здорово! Давайте соберемся и что-нибудь создадим!' },
+    { userName: 'Станислав', text: 'У меня есть идея для приложения, давайте обсудим!' },
+    { userName: 'Татьяна', text: 'Я могу помочь с дизайном интерфейса!' },
+];
+        // Имитация получения сообщений через 1-10 секунд
         messages.forEach((msg, index) => {
             setTimeout(() => {
                 receiveMessage(msg.userName, msg.text);
-            }, index * 2000); // Каждое сообщение через 2 секунды
+            }, index * 1000);
         });
     </script>
 </body>
