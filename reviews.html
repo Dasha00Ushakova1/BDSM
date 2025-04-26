@@ -22,6 +22,13 @@
             text-align: center;
         }
 
+        .logo {
+            width: 80px; /* Adjust logo size */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 50%; /* Circular logo */
+            margin-bottom: 10px; /* Space below logo */
+        }
+
         nav ul {
             list-style: none;
             padding: 0;
@@ -66,6 +73,11 @@
             border-radius: 5px;
             margin: 10px 0;
             cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #4db8e0; /* Darker blue on hover */
         }
 
         .reviews-list {
@@ -106,8 +118,7 @@
             width: 100%; /* Full width */
             height: 100%; /* Full height */
             overflow: auto; /* Enable scroll if needed */
-            background-color: rgb(0,0,0); /* Fallback color */
-            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
             padding-top: 60px; /* Location of the box */
         }
 
@@ -122,6 +133,7 @@
             color: #f0f0f0; /* Light text for better readability */
         }
 
+       
         .close {
             color: #aaa;
             float: right;
@@ -137,7 +149,7 @@
         }
 
         /* Input and textarea styles */
-                input[type="text"],
+        input[type="text"],
         textarea {
             width: 100%; /* Full width */
             padding: 10px; /* Padding for comfort */
@@ -163,6 +175,7 @@
 </head>
 <body>
     <header>
+        <img src="https://example.com/logo.png" alt="RemoteBuddy Logo" class="logo"> <!-- Replace with your logo URL -->
         <h1>RemoteBuddy</h1>
         <nav>
             <ul>
@@ -183,7 +196,6 @@
             
             <div class="reviews-list" id="reviews-list">
                 <div class="review">
-                    
                     <h3>Иван Иванов</h3>
                     <p>Отличная платформа для поиска фрилансеров! Очень рекомендую.</p>
                     <span class="timestamp">10 апреля 2025</span>
@@ -239,7 +251,7 @@
             const reviewText = document.getElementById('reviewText').value;
 
             const newReview = document.createElement('div');
-            newReview.classList.add('review');
+                       newReview.classList.add('review');
             newReview.innerHTML = `
                 <h3>${username}</h3>
                 <p>${reviewText}</p>
@@ -251,7 +263,6 @@
             document.getElementById('reviewForm').reset(); // Сбрасываем форму
         });
 
-        // Закрытие модального окна при
         // Закрытие модального окна при нажатии вне его области
         window.onclick = function(event) {
             const modal = document.getElementById('reviewModal');
