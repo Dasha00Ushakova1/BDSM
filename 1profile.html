@@ -23,11 +23,19 @@
         }
 
         .logo {
-            width: 80px; /* Adjust size as needed */
-            height: 80px; /* Adjust size as needed */
-            border-radius: 50%; /* Makes the image circular */
-            object-fit: cover; /* Ensures the image covers the area */
-            margin-bottom: 10px; /* Space below the logo */
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .profile-picture {
+            width: 100px; /* Adjust size as needed */
+            height: 100px;
+            border-radius: 50%; /* Circular image */
+            object-fit: cover;
+            margin-bottom: 10px;
         }
 
         nav ul {
@@ -114,12 +122,18 @@
             nav ul {
                 flex-direction: column;
             }
+
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="2e4b17e6-a650-4c03-99dc-bf0ad6f6be9b.png" alt="Логотип" class="logo"> <!-- Replace with your logo URL -->
+        <img src="2e4b17e6-a650-4c03-99dc-bf0ad6f6be9b.png" alt="Логотип" class="logo">
         <h1>RemoteBuddy</h1>
         <nav>
             <ul>
@@ -130,13 +144,14 @@
                 <li><a href="chat.html">Чат</a></li>
                 <li><a href="reviews.html">Отзывы</a></li>
                 <li><a href="about.html">О проекте</a></li>
-                <li><a href="profile.html" class="btn">Выйти </a></li> <!-- Exit button -->
+                <li><a href="profile.html" class="btn">Выйти</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <section class="profile-info">
             <h2>Информация о пользователе</h2>
+            <img src="profile-picture-url.jpg" alt="Фото профиля" class="profile-picture"> <!-- Замените на URL вашей фотографии -->
             <p>Email: <span id="userEmail">example@example.com</span>
                 <input type="text" id="userEmailInput" class="edit-input" value="example@example.com" onblur="saveEdit('userEmail', 'userEmailInput')">
             </p>
@@ -207,31 +222,30 @@
                 <tbody>
                     <tr>
                         <td>
-                            <span class="request-name">Поиск копирайтера</span>
-                            <input type="text" class="edit-input" value="Поиск копирайтера" onblur="saveRequestEdit(this)">
+                                                     <input type="text" class="edit-input" value="Поиск копирайтера" onblur="saveRequestEdit(this)">
                         </td>
                         <td>
-                            <span class="request-description">Нужен текст для сайта и рекламных материалов.</span>
-                            <input type="text" class="edit-input" value="Нужен текст для сайта и рекламных материалов." onblur="saveRequestEdit(this)">
+                            <span class="request-description">Требуется копирайтер для написания статей.</span>
+                            <input type="text" class="edit-input" value="Требуется копирайтер для написания статей." onblur="saveRequestEdit(this)">
                         </td>
                         <td>
-                            <span class="request-status">В процессе</span>
-                            <input type="text" class="edit-input" value="В процессе" onblur="saveRequestEdit(this)">
+                            <span class="request-status">В ожидании</span>
+                            <input type="text" class="edit-input" value="В ожидании" onblur="saveRequestEdit(this)">
                         </td>
                         <td><button class="btn" onclick="toggleRequestEdit(this)">Редактировать</button></td>
                     </tr>
-                                        <tr>
+                    <tr>
                         <td>
-                            <span class="request-name">Создание логотипа</span>
-                            <input type="text" class="edit-input" value="Создание логотипа" onblur="saveRequestEdit(this)">
+                            <span class="request-name">Поиск графического дизайнера</span>
+                            <input type="text" class="edit-input" value="Поиск графического дизайнера" onblur="saveRequestEdit(this)">
                         </td>
                         <td>
-                            <span class="request-description">Нужен уникальный логотип для нового проекта.</span>
-                            <input type="text" class="edit-input" value="Нужен уникальный логотип для нового проекта." onblur="saveRequestEdit(this)">
+                            <span class="request-description">Нужен дизайнер для создания рекламных материалов.</span>
+                            <input type="text" class="edit-input" value="Нужен дизайнер для создания рекламных материалов." onblur="saveRequestEdit(this)">
                         </td>
                         <td>
-                            <span class="request-status">Завершено</span>
-                            <input type="text" class="edit-input" value="Завершено" onblur="saveRequestEdit(this)">
+                            <span class="request-status">Активно</span>
+                            <input type="text" class="edit-input" value="Активно" onblur="saveRequestEdit(this)">
                         </td>
                         <td><button class="btn" onclick="toggleRequestEdit(this)">Редактировать</button></td>
                     </tr>
@@ -239,43 +253,19 @@
             </table>
         </section>
     </main>
+
     <footer>
         <p>&copy; RemoteBuddy</p>
     </footer>
 
     <script>
-        // Load email and name from local storage
-        window.onload = function() {
-            const email = localStorage.getItem('email');
-            const name = localStorage.getItem('name');
-
-            if (email) {
-                document.getElementById('userEmail').textContent = email;
-                document.getElementById('userEmailInput').value = email;
-            }
-
-            if (name) {
-                document.getElementById('userName').textContent = name;
-                document.getElementById('userNameInput').value = name;
-            }
-        };
-
-        // Save email and name to local storage
-        function saveEdit(textId, inputId) {
-            const textElement = document.getElementById(textId);
-            const inputElement = document.getElementById(inputId);
-            textElement.textContent = inputElement.value;
-
-            if (textId === 'userEmail') {
-                localStorage.setItem('email', inputElement.value);
-            } else if (textId === 'userName') {
-                localStorage.setItem('name', inputElement.value);
-            }
-        }
-
-        function toggleEdit(field) {
-            const inputField = document.getElementById(field + 'Input');
-            inputField.style.display = inputField.style.display === 'none' ? 'block' : 'none';
+        function toggleEdit(fieldId) {
+            const span = document.getElementById(fieldId);
+            const input = document.getElementById(fieldId + 'Input');
+            const editInput = input.style.display === 'none' ? 'block' : 'none';
+            const spanDisplay = editInput === 'block' ? 'none' : 'inline';
+            input.style.display = editInput;
+            span.style.display = spanDisplay;
         }
 
         function toggleOfferEdit(button) {
@@ -283,6 +273,10 @@
             const inputs = row.querySelectorAll('.edit-input');
             inputs.forEach(input => {
                 input.style.display = input.style.display === 'none' ? 'block' : 'none';
+            });
+            const spans = row.querySelectorAll('span');
+            spans.forEach(span => {
+                span.style.display = span.style.display === 'none' ? 'inline' : 'none';
             });
         }
 
@@ -292,32 +286,36 @@
             inputs.forEach(input => {
                 input.style.display = input.style.display === 'none' ? 'block' : 'none';
             });
+            const spans = row.querySelectorAll('span');
+            spans.forEach(span => {
+                span.style.display = span.style.display === 'none' ? 'inline' : 'none';
+            });
+        }
+
+        function saveEdit(spanId, inputId) {
+            const span = document.getElementById(spanId);
+            const input = document.getElementById(inputId);
+            span.textContent = input.value;
+            input.style.display = 'none';
+            span.style.display = 'inline';
         }
 
         function saveOfferEdit(input) {
             const row = input.closest('tr');
-            const nameSpan = row.querySelector('.offer-name');
-            const descriptionSpan = row.querySelector('.offer-description');
-            const statusSpan = row.querySelector('.offer-status');
-
-            nameSpan.textContent = row.querySelector('.offer-name + input').value;
-            descriptionSpan.textContent = row.querySelector('.offer-description + input').value;
-            statusSpan.textContent = row.querySelector('.offer-status + input').value;
+            const span = row.querySelector('.offer-name');
+            span.textContent = input.value;
+            input.style.display = 'none';
+            span.style.display = 'inline';
         }
 
         function saveRequestEdit(input) {
             const row = input.closest('tr');
-            const nameSpan = row.querySelector('.request-name');
-            const descriptionSpan = row.querySelector('.request-description');
-            const statusSpan = row.querySelector('.request-status');
-
-            nameSpan.textContent = row.querySelector('.request-name + input').value;
-            descriptionSpan.textContent = row.querySelector('.request-description + input').value;
-            statusSpan.textContent = row.querySelector('.request-status + input').value;
+            const span = row.querySelector('.request-name');
+            span.textContent = input.value;
+            input.style.display = 'none';
+            span.style.display = 'inline';
         }
     </script>
 </body>
 </html>
-
-                    
 
