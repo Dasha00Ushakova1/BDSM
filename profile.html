@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <link rel="icon" href="https://syhanoff.ru/wp-content/themes/portfolio/assets/favicon.ico" sizes="32x32" type="image/x-icon">
+    <link rel="icon" href="2e4b17e6-a650-4c03-99dc-bf0ad6f6be9b.png" sizes="32x32" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400&display=swap" rel="stylesheet">
     <title>Вход или Регистрация</title>
     <style>
@@ -20,6 +20,14 @@
             color: #61dafb; /* Light blue text */
             padding: 15px;
             text-align: center;
+        }
+
+        .logo {
+            width: 80px; /* Adjust size as needed */
+            height: 80px; /* Adjust size as needed */
+            border-radius: 50%; /* Makes the image circular */
+            object-fit: cover; /* Ensures the image covers the area */
+            margin-bottom: 10px; /* Space below the logo */
         }
 
         nav ul {
@@ -103,6 +111,7 @@
 </head>
 <body>
     <header>
+        <img src="2e4b17e6-a650-4c03-99dc-bf0ad6f6be9b.png" alt="Логотип" class="logo">
         <h1>RemoteBuddy</h1>
     </header>
 
@@ -119,11 +128,10 @@
                 <button type="submit" class="btn">Войти</button>
             </form>
         </div>
-
     </main>
 
-    <footer>
-        <p>&copy; RemoteBuddy</p>
+        <footer>
+        <p>&copy; 2023 RemoteBuddy. Все права защищены.</p>
     </footer>
 
     <script>
@@ -134,7 +142,6 @@
 
             // Здесь можно добавить логику для обработки входа
             console.log('Вход:', { email, password });
-           console.log('Регистрация:', { email, password });
 
             // Переход на страницу профиля после успешного входа
             window.location.href = '1profile.html';
