@@ -65,6 +65,7 @@
             border-radius: 8px;
             max-width: 800px;
             text-align: left;
+            display: none; /* Скрыто по умолчанию */
         }
 
         .form-container label {
@@ -124,8 +125,11 @@
             nav ul {
                 flex-direction: column; /* Вертикальное отображение для мобильных устройств */
             }
+            table {
+                font-size: 12px; /* Уменьшение шрифта таблицы на мобильных устройствах */
+            }
             header img {
-                max-width: 80px; /* Уменьшение размера логотипа на мобильных устройствах */
+                max-width: 80px;                /* Уменьшение размера логотипа на мобильных устройствах */
             }
         }
     </style>
@@ -136,7 +140,7 @@
         <h1>RemoteBuddy</h1>
         <nav>
             <ul>
-                                <li><a href="index.html">Главная</a></li>
+                <li><a href="index.html">Главная</a></li>
                 <li><a href="profile.html">Профиль</a></li>
                 <li><a href="offers.html">Предложения</a></li>
                 <li><a href="requests.html">Запросы</a></li>
@@ -147,7 +151,10 @@
         </nav>
     </header>
     <main>
-        <section class="form-container">
+        <section>
+            <button class="btn" id="showFormButton">Создать новое предложение</button>
+        </section>
+        <section class="form-container" id="formContainer">
             <h2>Создать новое предложение</h2>
             <form id="offerForm">
                 <label for="authorName">Ваше имя:</label>
@@ -216,6 +223,10 @@
     </footer>
 
     <script>
+        document.getElementById("showFormButton").onclick = function() {
+            document.getElementById("formContainer").style.display = "block"; // Показываем форму
+        };
+
         document.getElementById("offerForm").onsubmit = function(event) {
             event.preventDefault();
             const authorName = document.getElementById('authorName').value;
@@ -228,7 +239,7 @@
             newRow.innerHTML = `
                 <td>${serviceName}</td>
                 <td>${serviceDescription}</td>
-                <td>${servicePrice} руб.</td>
+                                <td>${servicePrice} руб.</td>
                 <td>${authorName}</td>
                 <td>
                     <button class="btn" onclick="viewOffer('${serviceName}')">Просмотреть</button>
@@ -236,15 +247,18 @@
             `;
             document.getElementById('offersTableBody').appendChild(newRow);
 
-            // Сброс формы
-            document.getElementById("offerForm").reset();
+            // Сбрасываем форму
+            document.getElementById('offerForm').reset();
+            document.getElementById("formContainer").style.display = "none"; // Скрываем форму после отправки
         };
 
-        function viewOffer(offerName) {
-            alert("Просмотр предложения: " + offerName);
-            // Здесь можно добавить код для перенаправления на страницу с деталями предложения
+        function viewOffer(serviceName) {
+            alert(`Просмотр предложения: ${serviceName}`);
+            // Здесь можно добавить функционал для просмотра подробной информации о предложении
         }
     </script>
 </body>
 </html>
 
+
+                
