@@ -141,8 +141,8 @@
         <h1>RemoteBuddy</h1>
         <nav>
             <ul>
-                <li><a href="index.html">Главная</a></li>
-                                <li><a href="profile.html">Профиль</a></li>
+                               <li><a href="index.html">Главная</a></li>
+                <li><a href="profile.html">Профиль</a></li>
                 <li><a href="offers.html">Предложения</a></li>
                 <li><a href="requests.html">Запросы</a></li>
                 <li><a href="chat.html">Чат</a></li>
@@ -158,11 +158,13 @@
             <img id="profileImage" src="i.webp" alt="Фото профиля" class="profile-picture">
             <p>Email: 
                 <span id="userEmail">example@example.com</span>
-                <input type="text" id="userEmailInput" class="edit-input" value="example@example.com" onblur="saveEdit('userEmail', 'userEmailInput')">
+                <input type="text" id="userEmailInput" class="edit-input" value="example@example.com">
+                <button class="btn" onclick="saveEdit('userEmail', 'userEmailInput')">Сохранить</button>
             </p>
             <p>Имя: 
                 <span id="userName">Имя пользователя</span>
-                <input type="text" id="userNameInput" class="edit-input" value="Имя пользователя" onblur="saveEdit('userName', 'userNameInput')">
+                <input type="text" id="userNameInput" class="edit-input" value="Имя пользователя">
+                <button class="btn" onclick="saveEdit('userName', 'userNameInput')">Сохранить</button>
             </p>
             <p>
                 <label for="fileUpload" class="btn">Загрузить фото профиля</label>
@@ -187,15 +189,18 @@
                     <tr>
                         <td>
                             <span class="offer-name">Дизайн логотипа</span>
-                            <input type="text" class="edit-input" value="Дизайн логотипа" onblur="saveOfferEdit(this)">
+                            <input type="text" class="edit-input" value="Дизайн логотипа">
+                            <button class="btn" onclick="saveOfferEdit(this)">Сохранить</button>
                         </td>
                         <td>
                             <span class="offer-description">Создание уникального логотипа для вашего бизнеса.</span>
-                            <input type="text" class="edit-input" value="Создание уникального логотипа для вашего бизнеса." onblur="saveOfferEdit(this)">
+                            <input type="text" class="edit-input" value="Создание уникального логотипа для вашего бизнеса.">
+                            <button class="btn" onclick="saveOfferEdit(this)">Сохранить</button>
                         </td>
                         <td>
                             <span class="offer-status">Активно</span>
-                            <input type="text" class="edit-input" value="Активно" onblur="saveOfferEdit(this)">
+                            <input type="text" class="edit-input" value="Активно">
+                            <button class="btn" onclick="saveOfferEdit(this)">Сохранить</button>
                         </td>
                         <td>
                             <button class="btn" onclick="toggleOfferEdit(this)">Редактировать</button>
@@ -204,18 +209,21 @@
                     <tr>
                         <td>
                             <span class="offer-name">Разработка сайта</span>
-                            <input type="text" class="edit-input" value="Разработка сайта" onblur="saveOfferEdit(this)">
+                            <input type="text" class="edit-input" value="Разработка сайта">
+                            <button class="btn" onclick="saveOfferEdit(this)">Сохранить</button>
                         </td>
                         <td>
                             <span class="offer-description">Полная разработка и поддержка веб-сайтов.</span>
-                            <input type="text" class="edit-input" value="Полная разработка и поддержка веб-сайтов." onblur="saveOfferEdit(this)">
+                            <input type="text" class="edit-input" value="Полная разработка и поддержка веб-сайтов.">
+                            <button class="btn" onclick="saveOfferEdit(this)">Сохранить</button>
                         </td>
                         <td>
                             <span class="offer-status">Завершено</span>
-                            <input type="text" class="edit-input" value="Завершено" onblur="saveOfferEdit(this)">
+                            <input type="text" class="edit-input" value="Завершено">
+                            <button class="btn" onclick="saveOfferEdit(this)">Сохранить</button>
                         </td>
                         <td>
-                            <button class="btn" onclick="toggleOfferEdit(this)">Редактировать</button>
+                                                       <button class="btn" onclick="toggleOfferEdit(this)">Редактировать</button>
                         </td>
                     </tr>
                 </tbody>
@@ -235,17 +243,20 @@
                 </thead>
                 <tbody>
                     <tr>
-                                                <td>
+                        <td>
                             <span class="request-name">Запрос на дизайн сайта</span>
-                            <input type="text" class="edit-input" value="Запрос на дизайн сайта" onblur="saveRequestEdit(this)">
+                            <input type="text" class="edit-input" value="Запрос на дизайн сайта">
+                            <button class="btn" onclick="saveRequestEdit(this)">Сохранить</button>
                         </td>
                         <td>
                             <span class="request-description">Необходим новый дизайн для сайта компании.</span>
-                            <input type="text" class="edit-input" value="Необходим новый дизайн для сайта компании." onblur="saveRequestEdit(this)">
+                            <input type="text" class="edit-input" value="Необходим новый дизайн для сайта компании.">
+                            <button class="btn" onclick="saveRequestEdit(this)">Сохранить</button>
                         </td>
                         <td>
                             <span class="request-status">В ожидании</span>
-                            <input type="text" class="edit-input" value="В ожидании" onblur="saveRequestEdit(this)">
+                            <input type="text" class="edit-input" value="В ожидании">
+                            <button class="btn" onclick="saveRequestEdit(this)">Сохранить</button>
                         </td>
                         <td>
                             <button class="btn" onclick="toggleRequestEdit(this)">Редактировать</button>
@@ -253,16 +264,19 @@
                     </tr>
                     <tr>
                         <td>
-                            <span class="request-name">Запрос на маркетинг</span>
-                            <input type="text" class="edit-input" value="Запрос на маркетинг" onblur="saveRequestEdit(this)">
+                            <span class="request-name">Запрос на разработку мобильного приложения</span>
+                            <input type="text" class="edit-input" value="Запрос на разработку мобильного приложения">
+                            <button class="btn" onclick="saveRequestEdit(this)">Сохранить</button>
                         </td>
                         <td>
-                            <span class="request-description">Ищу маркетолога для продвижения бизнеса.</span>
-                            <input type="text" class="edit-input" value="Ищу маркетолога для продвижения бизнеса." onblur="saveRequestEdit(this)">
+                            <span class="request-description">Требуется разработка приложения для iOS и Android.</span>
+                            <input type="text" class="edit-input" value="Требуется разработка приложения для iOS и Android.">
+                            <button class="btn" onclick="saveRequestEdit(this)">Сохранить</button>
                         </td>
                         <td>
-                            <span class="request-status">Активно</span>
-                            <input type="text" class="edit-input" value="Активно" onblur="saveRequestEdit(this)">
+                            <span class="request-status">В процессе</span>
+                            <input type="text" class="edit-input" value="В процессе">
+                            <button class="btn" onclick="saveRequestEdit(this)">Сохранить</button>
                         </td>
                         <td>
                             <button class="btn" onclick="toggleRequestEdit(this)">Редактировать</button>
@@ -273,13 +287,13 @@
         </section>
     </main>
     <footer>
-        <p>&copy; RemoteBuddy</p>
+        <p>&copy;RemoteBuddy</p>
     </footer>
 
     <script>
-        function toggleEdit(fieldId) {
-            const span = document.getElementById(fieldId);
-            const input = document.getElementById(fieldId + 'Input');
+        function toggleEdit(elementId) {
+            const input = document.getElementById(elementId + 'Input');
+            const span = document.getElementById(elementId);
             if (input.style.display === 'none' || input.style.display === '') {
                 input.style.display = 'block';
                 span.style.display = 'none';
@@ -306,45 +320,57 @@
         function toggleOfferEdit(button) {
             const row = button.closest('tr');
             const inputs = row.querySelectorAll('.edit-input');
-            inputs.forEach(input => {
-                input.style.display = input.style.display === 'none' || input.style.display === '' ? 'block' : 'none';
-                const span = input.previousElementSibling;
-                span.style.display = input.style.display === 'none' ? 'inline' : 'none';
+            const spans = row.querySelectorAll('span');
+
+            inputs.forEach((input, index) => {
+                if (input.style.display === 'none' || input.style.display === '') {
+                    input.style.display = 'block';
+                    spans[index].style.display = 'none';
+                    input.focus();
+                } else {
+                    input.style.display = 'none';
+                    spans[index].style.display = 'inline';
+                }
             });
         }
 
-        function saveOfferEdit(input) {
-            const row = input.closest('tr');
-            const spans = row.querySelectorAll('span');
-            spans.forEach(span => {
-                span.textContent = input.value;
-                span.style.display = 'inline';
-            });
+        function saveOfferEdit(button) {
+            const row = button.closest('tr');
+            const span = row.querySelector('span');
+            const input = row.querySelector('.edit-input');
+                    span.textContent = input.value;
             input.style.display = 'none';
+            span.style.display = 'inline';
         }
 
         function toggleRequestEdit(button) {
             const row = button.closest('tr');
             const inputs = row.querySelectorAll('.edit-input');
-            inputs.forEach(input => {
-                input.style.display = input.style.display === 'none' || input.style.display === '' ? 'block' : 'none';
-                const span = input.previousElementSibling;
-                span.style.display = input.style.display === 'none' ? 'inline' : 'none';
+            const spans = row.querySelectorAll('span');
+
+            inputs.forEach((input, index) => {
+                if (input.style.display === 'none' || input.style.display === '') {
+                    input.style.display = 'block';
+                    spans[index].style.display = 'none';
+                    input.focus();
+                } else {
+                    input.style.display = 'none';
+                    spans[index].style.display = 'inline';
+                }
             });
         }
 
-        function saveRequestEdit(input) {
-            const row = input.closest('tr');
-            const spans = row.querySelectorAll('span');
-            spans.forEach(span => {
-                span.textContent = input.value;
-                span.style.display = 'inline';
-            });
+        function saveRequestEdit(button) {
+            const row = button.closest('tr');
+            const span = row.querySelector('span');
+            const input = row.querySelector('.edit-input');
+            span.textContent = input.value;
             input.style.display = 'none';
+            span.style.display = 'inline';
         }
     </script>
 </body>
 </html>
 
 
-               
+
