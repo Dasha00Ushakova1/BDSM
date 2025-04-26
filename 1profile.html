@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Профиль пользователя - RemoteBuddy</title>
-       <link rel="icon" href="https://syhanoff.ru/wp-content/themes/portfolio/assets/favicon.ico" sizes="32x32" type="image/x-icon">
+    <link rel="icon" href="2e4b17e6-a650-4c03-99dc-bf0ad6f6be9b.png" sizes="32x32" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400&display=swap" rel="stylesheet">
     <style>
         body {
@@ -20,6 +20,14 @@
             color: #61dafb; /* Light blue text */
             padding: 15px;
             text-align: center;
+        }
+
+        .logo {
+            width: 80px; /* Adjust size as needed */
+            height: 80px; /* Adjust size as needed */
+            border-radius: 50%; /* Makes the image circular */
+            object-fit: cover; /* Ensures the image covers the area */
+            margin-bottom: 10px; /* Space below the logo */
         }
 
         nav ul {
@@ -49,7 +57,7 @@
             text-align: center;
         }
 
-        .profile-info, .my-offers, .my-requests, .registration {
+        .profile-info, .my-offers, .my-requests {
             background-color: #282c34; /* Dark background for sections */
             padding: 20px;
             margin: 20px auto;
@@ -111,6 +119,7 @@
 </head>
 <body>
     <header>
+        <img src="path_to_your_logo.png" alt="Логотип" class="logo"> <!-- Replace with your logo URL -->
         <h1>RemoteBuddy</h1>
         <nav>
             <ul>
@@ -121,7 +130,7 @@
                 <li><a href="chat.html">Чат</a></li>
                 <li><a href="reviews.html">Отзывы</a></li>
                 <li><a href="about.html">О проекте</a></li>
-                <li><a href="profile.html" class="btn">Выйти</a></li> <!-- Exit button -->
+                <li><a href="logout.html" class="btn">Выйти                </a></li> <!-- Exit button -->
             </ul>
         </nav>
     </header>
@@ -131,13 +140,12 @@
             <p>Email: <span id="userEmail">example@example.com</span>
                 <input type="text" id="userEmailInput" class="edit-input" value="example@example.com" onblur="saveEdit('userEmail', 'userEmailInput')">
             </p>
-                        <p>Имя: <span id="userName">Имя пользователя</span>
+            <p>Имя: <span id="userName">Имя пользователя</span>
                 <input type="text" id="userNameInput" class="edit-input" value="Имя пользователя" onblur="saveEdit('userName', 'userNameInput')">
             </p>
             <button class="btn" onclick="toggleEdit('userEmail')">Редактировать Email</button>
             <button class="btn" onclick="toggleEdit('userName')">Редактировать Имя</button>
         </section>
-
 
         <section class="my-offers">
             <h3>Мои предложения</h3>
@@ -212,18 +220,18 @@
                         </td>
                         <td><button class="btn" onclick="toggleRequestEdit(this)">Редактировать</button></td>
                     </tr>
-                    <tr>
+                                        <tr>
                         <td>
-                                                        <span class="request-name">Запрос на SEO-оптимизацию</span>
-                            <input type="text" class="edit-input" value="Запрос на SEO-оптимизацию" onblur="saveRequestEdit(this)">
+                            <span class="request-name">Создание логотипа</span>
+                            <input type="text" class="edit-input" value="Создание логотипа" onblur="saveRequestEdit(this)">
                         </td>
                         <td>
-                            <span class="request-description">Оптимизация сайта для поисковых систем.</span>
-                            <input type="text" class="edit-input" value="Оптимизация сайта для поисковых систем." onblur="saveRequestEdit(this)">
+                            <span class="request-description">Нужен уникальный логотип для нового проекта.</span>
+                            <input type="text" class="edit-input" value="Нужен уникальный логотип для нового проекта." onblur="saveRequestEdit(this)">
                         </td>
                         <td>
-                            <span class="request-status">Новый</span>
-                            <input type="text" class="edit-input" value="Новый" onblur="saveRequestEdit(this)">
+                            <span class="request-status">Завершено</span>
+                            <input type="text" class="edit-input" value="Завершено" onblur="saveRequestEdit(this)">
                         </td>
                         <td><button class="btn" onclick="toggleRequestEdit(this)">Редактировать</button></td>
                     </tr>
@@ -231,78 +239,85 @@
             </table>
         </section>
     </main>
-    
     <footer>
-        <p>&copy;  RemoteBuddy.</p>
+        <p>&copy; 2025 RemoteBuddy. Все права защищены.</p>
     </footer>
 
     <script>
-        function toggleEdit(fieldId) {
-            const span = document.getElementById(fieldId);
-            const input = document.getElementById(fieldId + 'Input');
-            if (span.style.display === "none") {
-                span.style.display = "inline";
-                input.style.display = "none";
-            } else {
-                span.style.display = "none";
-                input.style.display = "inline";
-                input.focus();
+        // Load email and name from local storage
+        window.onload = function() {
+            const email = localStorage.getItem('email');
+            const name = localStorage.getItem('name');
+
+            if (email) {
+                document.getElementById('userEmail').textContent = email;
+                document.getElementById('userEmailInput').value = email;
+            }
+
+            if (name) {
+                document.getElementById('userName').textContent = name;
+                document.getElementById('userNameInput').value = name;
+            }
+        };
+
+        // Save email and name to local storage
+        function saveEdit(textId, inputId) {
+            const textElement = document.getElementById(textId);
+            const inputElement = document.getElementById(inputId);
+            textElement.textContent = inputElement.value;
+
+            if (textId === 'userEmail') {
+                localStorage.setItem('email', inputElement.value);
+            } else if (textId === 'userName') {
+                localStorage.setItem('name', inputElement.value);
             }
         }
 
-        function saveEdit(spanId, inputId) {
-            const span = document.getElementById(spanId);
-            const input = document.getElementById(inputId);
-            span.textContent = input.value;
-            span.style.display = "inline";
-            input.style.display = "none";
+        function toggleEdit(field) {
+            const inputField = document.getElementById(field + 'Input');
+            inputField.style.display = inputField.style.display === 'none' ? 'block' : 'none';
         }
 
         function toggleOfferEdit(button) {
             const row = button.closest('tr');
             const inputs = row.querySelectorAll('.edit-input');
             inputs.forEach(input => {
-                input.style.display = input.style.display === "none" ? "inline" : "none";
-                if (input.style.display === "inline") input.focus();
+                input.style.display = input.style.display === 'none' ? 'block' : 'none';
             });
-        }
-
-        function saveOfferEdit(input) {
-            const row = input.closest('tr');
-            const spans = row.querySelectorAll('span');
-            spans.forEach((span, index) => {
-                span.textContent = row.querySelectorAll('.edit-input')[index].value;
-            });
-            const inputs = row.querySelectorAll('.edit-input');
-            inputs.forEach(input => input.style.display = "none");
         }
 
         function toggleRequestEdit(button) {
             const row = button.closest('tr');
             const inputs = row.querySelectorAll('.edit-input');
             inputs.forEach(input => {
-                input.style.display = input.style.display === "none" ? "inline" : "none";
-                if (input.style.display === "inline") input.focus();
+                input.style.display = input.style.display === 'none' ? 'block' : 'none';
             });
+        }
+
+        function saveOfferEdit(input) {
+            const row = input.closest('tr');
+            const nameSpan = row.querySelector('.offer-name');
+            const descriptionSpan = row.querySelector('.offer-description');
+            const statusSpan = row.querySelector('.offer-status');
+
+            nameSpan.textContent = row.querySelector('.offer-name + input').value;
+            descriptionSpan.textContent = row.querySelector('.offer-description + input').value;
+            statusSpan.textContent = row.querySelector('.offer-status + input').value;
         }
 
         function saveRequestEdit(input) {
             const row = input.closest('tr');
-            const spans = row.querySelectorAll('span');
-            spans.forEach((span, index) => {
-                span.textContent = row.querySelectorAll('.edit-input')[index].value;
-            });
-            const inputs = row.querySelectorAll('.edit-input');
-            inputs.forEach(input => input.style.display = "none");
-        }
+            const nameSpan = row.querySelector('.request-name');
+            const descriptionSpan = row.querySelector('.request-description');
+            const statusSpan = row.querySelector('.request-status');
 
-        function registerUser (event) {
-            event.preventDefault();
-            // Add registration logic here
-            alert('Пользователь зарегистрирован!');
+            nameSpan.textContent = row.querySelector('.request-name + input').value;
+            descriptionSpan.textContent = row.querySelector('.request-description + input').value;
+            statusSpan.textContent = row.querySelector('.request-status + input').value;
         }
     </script>
 </body>
 </html>
 
+                    
 
